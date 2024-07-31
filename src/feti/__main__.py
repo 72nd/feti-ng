@@ -1,6 +1,7 @@
 import argparse
 import asyncio
 from pathlib import Path
+from typing import Optional
 
 from baserow.client import GlobalClient
 from baserow.filter import AndFilter
@@ -9,7 +10,12 @@ from livereload import Server
 from feti.config import config, load_config, load_secrets, secrets
 
 
-async def generate(config_path: str, secrets_path: str, output: str):
+async def generate(
+    config_path: str,
+    secrets_path: str,
+    output: str,
+    event_name: Optional[str],
+):
     """
     Generate the schedule.json based on Baserow data.
     """
@@ -25,6 +31,7 @@ async def generate(config_path: str, secrets_path: str, output: str):
         await Entry.query(size=-1),
         await Location.query(size=-1),
         await Timetable.query(size=-1),
+        "Event Name" if event_name is not None else "TODO <Event Name>",
     )
     schedule.sort_schedule()
     with open(output, "w") as f:
@@ -64,6 +71,10 @@ def main():
         "--output",
         help="Output file or directory.",
     )
+    parser.add_argument(
+        "--event-name",
+        help="Optional name of the event",
+    )
 
     subparsers = parser.add_subparsers(
         dest="command",
@@ -80,6 +91,11 @@ def main():
     if args.command == "serve":
         args.func()
     elif args.config and args.secrets and args.output:
-        asyncio.run(generate(args.config, args.secrets, args.output))
+        asyncio.run(generate(
+            args.config,
+            args.secrets,
+            args.output,
+            args.event_name,
+        ))
     else:
         parser.print_help()

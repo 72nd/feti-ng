@@ -1,1 +1,405 @@
-{"permanent":[{"is_permanent":true,"starts_at":null,"artist_name":"Katharina Stumm","title":"GET YOUR SEQUENZ","duration":null,"description":"","genre":"Ausstellung","location":"Portal"},{"is_permanent":true,"starts_at":null,"artist_name":"Fine Line","title":"ES KÖNNTE SO SCHÖN SEIN","duration":null,"description":"","genre":"Ausstellung","location":"Portal"},{"is_permanent":true,"starts_at":null,"artist_name":"Fabianart","title":"Naturszenen","duration":null,"description":"","genre":"Ausstellung","location":"Arthok"},{"is_permanent":true,"starts_at":null,"artist_name":"Lia Mizrahi Goldfarb","title":"FOG-DIFFICULTY IN SEEING WHAT IS WAY TO CLOSE","duration":null,"description":"","genre":"Film","location":"Dschungel"},{"is_permanent":true,"starts_at":null,"artist_name":"BODIES.DIGITAL","title":"Foreign body","duration":null,"description":"","genre":"Film","location":"Dschungel"},{"is_permanent":true,"starts_at":null,"artist_name":"Robert Lucas","title":"FLÄMINGER LIEDER","duration":null,"description":"","genre":"Film","location":"Dschungel"},{"is_permanent":true,"starts_at":null,"artist_name":"Franz-Josef Schmitt","title":"Die Wiedereröffnung des Festivals der abstrakt absurden Pinakothek der künstlichen Intelligenz","duration":"PT1H","description":"","genre":"Hybrid","location":"Kino"},{"is_permanent":true,"starts_at":null,"artist_name":"Defri Rafiki","title":"Abstrakte Kunst & Expressionismus","duration":"PT1H","description":"","genre":"Installation","location":"Ferkelbau"},{"is_permanent":true,"starts_at":null,"artist_name":"Mingatattoo","title":"Mingatattoo","duration":null,"description":"","genre":"Installation","location":"Rittersaal"},{"is_permanent":true,"starts_at":null,"artist_name":"Daniel Jodocy","title":"Alles klingt, everything sounds","duration":null,"description":"","genre":"Installation","location":"Belvedere"},{"is_permanent":true,"starts_at":null,"artist_name":"Julia Kopa","title":"Wurlitzer","duration":null,"description":"","genre":"Installation","location":"Arthok"},{"is_permanent":true,"starts_at":null,"artist_name":"Adam","title":"Quintessenz","duration":null,"description":"","genre":"Installation","location":"Arthok"},{"is_permanent":true,"starts_at":null,"artist_name":"Pandora Pop","title":"Wald ein. Wald aus","duration":null,"description":"","genre":"Installation","location":"Kasse"},{"is_permanent":true,"starts_at":null,"artist_name":"Rainer Duvall","title":"Produktionsstruktur LPG","duration":null,"description":"","genre":"Installation","location":"Arthok"}],"per_day":{"2024-08-01":[{"is_permanent":false,"starts_at":"2024-08-01T16:00:00Z","artist_name":"Festival für Freunde","title":"Eröffnung","duration":"PT30M","description":"","genre":"Meta","location":"Bar"},{"is_permanent":false,"starts_at":"2024-08-01T17:00:00Z","artist_name":"King Roland & Tahini (Rollin`Art Kollektiv)","title":"„Die Seifenblasen Inklusive“","duration":"PT1H","description":"","genre":"Hybrid","location":"Wiese"},{"is_permanent":false,"starts_at":"2024-08-01T18:30:00Z","artist_name":"Franz-Josef Schmitt","title":"Die Wiedereröffnung des Festivals der abstrakt absurden Pinakothek der künstlichen Intelligenz","duration":"PT1H","description":"","genre":"Hybrid","location":"Kino"},{"is_permanent":false,"starts_at":"2024-08-01T20:00:00Z","artist_name":"DIE VERWANDLUNG","title":"DIE VERWANDLUNG - Kafka Konzert","duration":"PT1H15M","description":"","genre":"Hybrid","location":"Theaterstall"}],"2024-08-02":[{"is_permanent":false,"starts_at":"2024-08-02T12:00:00Z","artist_name":"Tur Tur Theater","title":"Orpheus & Eurydike","duration":"PT45M","description":"","genre":"Kindertheater","location":"Wiese"},{"is_permanent":false,"starts_at":"2024-08-02T12:30:00Z","artist_name":"Beng & Beng","title":"Impro Workshop","duration":"PT2H","description":"","genre":"Workshop","location":"Kino"},{"is_permanent":false,"starts_at":"2024-08-02T13:30:00Z","artist_name":"Theater im Kino","title":"Hamlet zum kotzen","duration":"PT1H30M","description":"","genre":"Theater","location":"Alte Scheune"},{"is_permanent":false,"starts_at":"2024-08-02T15:30:00Z","artist_name":"The late train","title":"MUSICA BIZZARRA","duration":"PT1H","description":"","genre":"Musik","location":"Kirche"},{"is_permanent":false,"starts_at":"2024-08-02T17:00:00Z","artist_name":"Theater im Kino","title":"Lulu","duration":"PT1H30M","description":"","genre":"Theater","location":"Theaterstall"},{"is_permanent":false,"starts_at":"2024-08-02T18:30:00Z","artist_name":"Julian Zwingel et al.","title":"Birds & Dreamers","duration":"PT1H","description":"","genre":"Theater","location":"Alte Scheune"},{"is_permanent":false,"starts_at":"2024-08-02T20:00:00Z","artist_name":"5Raumfenster","title":"Festival-Bookingvorschlag - Rockternative Band 5Raumfenster aus Leipzig","duration":"PT1H","description":"","genre":"Musik","location":"Wiese"}],"2024-08-03":[{"is_permanent":false,"starts_at":"2024-08-03T11:00:00Z","artist_name":"Producciones Abismales","title":"Umwelttheater","duration":"PT30M","description":"","genre":"Performance","location":"Wiese"},{"is_permanent":false,"starts_at":"2024-08-03T12:00:00Z","artist_name":"Kanaltheater","title":"Weltrettung naht ODER: Die Welt ist in Gefahr - Rettung naht aus Eberswalde","duration":"PT1H20M","description":"","genre":"Theater","location":"Arthok"},{"is_permanent":false,"starts_at":"2024-08-03T13:30:00Z","artist_name":"Jannis Eggelsmann","title":"Fish and Ships","duration":"PT50M","description":"","genre":"Performance","location":"Theaterstall"},{"is_permanent":false,"starts_at":"2024-08-03T15:00:00Z","artist_name":"heesch und ko","title":"\"Wenn du einen Wal sehen willst\" - für alle ab vier Jahren","duration":"PT45M","description":"","genre":"Kindertheater","location":"Wiese"},{"is_permanent":false,"starts_at":"2024-08-03T15:00:00Z","artist_name":"Frederike Meyer","title":"Hatha Yoga und Ecstatic Dance","duration":"PT1H30M","description":"","genre":"Workshop","location":"Alte Scheune"},{"is_permanent":false,"starts_at":"2024-08-03T16:00:00Z","artist_name":"Matthias Hufnagl","title":"Afterglow","duration":"PT1H","description":"","genre":"Lesung","location":"Alte Scheune"},{"is_permanent":false,"starts_at":"2024-08-03T17:30:00Z","artist_name":"Festival Für Freunde & Wenn Orte sprechen","title":"BRACHLAND-EIN STÜCK AUS DAHNSDORF","duration":"PT1H30M","description":"","genre":"Theater","location":"Theaterstall"},{"is_permanent":false,"starts_at":"2024-08-03T19:00:00Z","artist_name":"Fliegende Haie","title":"Konzert","duration":"PT1H","description":"","genre":"Musik","location":"Wiese"},{"is_permanent":false,"starts_at":"2024-08-03T20:30:00Z","artist_name":"Defri Rafiki","title":"Abstrakte Kunst & Expressionismus","duration":"PT1H","description":"","genre":"Installation","location":"Rittersaal"},{"is_permanent":false,"starts_at":"2024-08-03T21:30:00Z","artist_name":"t.b.a","title":"Auflegerei","duration":"PT3H","description":"","genre":"DJ","location":"Kino"}],"2024-08-04":[{"is_permanent":false,"starts_at":"2024-08-04T09:30:00Z","artist_name":"Frederike Meyer","title":"Hatha Yoga und Ecstatic Dance","duration":"PT1H30M","description":"","genre":"Workshop","location":"Dschungel"},{"is_permanent":false,"starts_at":"2024-08-04T11:00:00Z","artist_name":"AnJu","title":"us/wir/nous","duration":"PT45M","description":"","genre":"Kindertheater","location":"Alte Scheune"},{"is_permanent":false,"starts_at":"2024-08-04T12:30:00Z","artist_name":"Alica Minar & col.","title":"WOODS WON'T VAPORIZE","duration":"PT1H40M","description":"","genre":"Tanz","location":"Wiese"},{"is_permanent":false,"starts_at":"2024-08-04T15:00:00Z","artist_name":"Casino gitano","title":"Tanzvergnügen","duration":"PT1H30M","description":"","genre":"Musik","location":"Wiese"}]}}
+{
+    "event_name": "<Event Name>",
+    "permanent": [
+        {
+            "is_permanent": true,
+            "starts_at": null,
+            "artist_name": "Katharina Stumm",
+            "title": "GET YOUR SEQUENZ",
+            "duration": null,
+            "description": "",
+            "genre": "Ausstellung",
+            "location": "Portal"
+        },
+        {
+            "is_permanent": true,
+            "starts_at": null,
+            "artist_name": "Fine Line",
+            "title": "ES KÖNNTE SO SCHÖN SEIN",
+            "duration": null,
+            "description": "",
+            "genre": "Ausstellung",
+            "location": "Portal"
+        },
+        {
+            "is_permanent": true,
+            "starts_at": null,
+            "artist_name": "Fabianart",
+            "title": "Naturszenen",
+            "duration": null,
+            "description": "",
+            "genre": "Ausstellung",
+            "location": "Arthok"
+        },
+        {
+            "is_permanent": true,
+            "starts_at": null,
+            "artist_name": "Lia Mizrahi Goldfarb",
+            "title": "FOG-DIFFICULTY IN SEEING WHAT IS WAY TO CLOSE",
+            "duration": null,
+            "description": "Der Kurzfilm \"Difficulty in seeing what is way too close\" beschäftigt sich mit dem Thema \"Nebel\" und seinen möglichen Assoziationen. Die Regisseurin erforscht den Nebel nicht nur als visuelles Phänomen, sondern auch als anthropologisches Phänomen.",
+            "genre": "Film",
+            "location": "Dschungel"
+        },
+        {
+            "is_permanent": true,
+            "starts_at": null,
+            "artist_name": "BODIES.DIGITAL",
+            "title": "Foreign body",
+            "duration": null,
+            "description": "Körper, die nicht in den Rahmen der Gesellschaft passen, werden als Fremdkörper behandelt und letztlich abgelehnt. Aber was passiert, wenn sich der Kontext ändert? Kann jede*r ein Fremdkörper sein? In ihrer Kurzfilmproduktion \"Foreign Body\" setzt sich die Choreografin Howool Baek digital mit der Fremdheit in unserer Gesellschaft auseinander. Die 10 Episoden erzählen einfühlsam und humorvoll von seltsamen Begegnungen und vertrauten Gruppendynamiken, die in unserer zunehmend entfremdeten Gesellschaft zum Nachdenken anregen. Jede*r kann ein Fremdkörper sein - überall.",
+            "genre": "Film",
+            "location": "Dschungel"
+        },
+        {
+            "is_permanent": true,
+            "starts_at": null,
+            "artist_name": "Robert Lucas",
+            "title": "FLÄMINGER LIEDER",
+            "duration": null,
+            "description": "",
+            "genre": "Film",
+            "location": "Dschungel"
+        },
+        {
+            "is_permanent": true,
+            "starts_at": null,
+            "artist_name": "Franz-Josef Schmitt",
+            "title": "Die Wiedereröffnung des Festivals der abstrakt absurden Pinakothek der künstlichen Intelligenz",
+            "duration": "PT1H",
+            "description": "Willkommen zur Wiedereröffnung des Festivals der abstrakt-Absurden Pinakothek der Künstlichen Intelligenz! Nach einem sensationellen Debüt letztes Jahr kehren wir zurück mit noch abgefahreneren, absurderen und kafkeskeren Motiven, die durch modernste KI-Tools wie Dall-E und Midjourney erzeugt werden. Diese neuen Werke sind wahrhaft mindblowing, sie überschreiten die Grenzen der Vorstellungskraft und laden Sie ein in eine Welt, wo Realität und digitale Fantasie verschmelzen.\n\nUnser Festival ist nicht nur eine Ausstellung, sondern ein immersives Erlebnis. Besucher werden Teil der Ausstellung, indem ihre Stofflichkeit in den kafkaesken Kreationen der künstlichen Intelligenz aufgeht. Ihre Fragen und Gedanken werden Teil dieser absurd-abstrakten Pinakothek, digitalisiert und direkt in Ihr Bewusstsein implementiert.\n\nDiese neue Edition des Festivals zielt darauf ab, Wissenschaft und Kunst auf eine noch nie dagewesene Art und Weise zu verknüpfen. Mit fortschrittlicher KI-Technologie erzeugen wir realistische Bilder von unglaublicher Schönheit und Detailgenauigkeit, die die Grenzen zwischen impressionistischer und expressionistischer Kunst neu definieren. Unser Ansatz wandelt komplexe wissenschaftliche Konzepte in atemberaubende visuelle Darstellungen um, die sowohl zum Nachdenken anregen als auch tiefgründige emotionale Reaktionen hervorrufen.\n\nWir laden Menschen jeden Alters und jeder Herkunft ein, Teil dieses revolutionären Erlebnisses zu sein. Tauchen Sie ein in die Tiefen des Weltalls, entdecken Sie die Wunder des Universums auf neue Weise und erleben Sie, wie Ihre eigene Neugier in die digitale Welt der Kunst integriert wird.\n\nSeien Sie bereit, Ihre Sinne zu öffnen und in eine neue Welt der Wissenschaft und Kunst einzutauchen. Unterstützen Sie uns dabei, die Wissenschaftskommunikation auf eine noch nie dagewesene Ebene zu heben. Wir freuen uns auf Ihren Besuch bei der Wiedereröffnung des Festivals der abstrakt-Absurden Pinakothek der Künstlichen Intelligenz – ein Erlebnis, das garantiert Ihre Vorstellungskraft sprengen wird!",
+            "genre": "Hybrid",
+            "location": "Kino"
+        },
+        {
+            "is_permanent": true,
+            "starts_at": null,
+            "artist_name": "Defri Rafiki",
+            "title": "Abstrakte Kunst & Expressionismus",
+            "duration": "PT1H",
+            "description": "Künstlerische Aussage:\nDarren Nötzelmanns Kunst ist eine Reflexion seiner Faszination für das Universum und die Geheimnisse, die es birgt, sowie die Farbenvielfalt der Natur. In seinen Werken spiegelt sich auch seine innere Gedankenwelt wider, die er als abstrakt und farbenfroh beschreibt. Sein abstrakter Stil verkörpert seine intensiven emotionalen Zustände, die er unmittelbar auf die Leinwand überträgt. Seine kreativen Prozesse werden oft durch Musik stimuliert, die ihm hilft, tiefgreifende Gefühle auszudrücken und seine innere Welt zu meistern. \nNötzelmanns Kunst ist letztlich eine Spiegelung seiner eigenen Persönlichkeit - abstrakt, expressiv und lebendig. Sie ist seine einzigartige Interpretation der Welt, ein Versuch, das Unsagbare und Unbegreifbare darzustellen und dabei gleichzeitig einen Teil seiner selbst preiszugeben",
+            "genre": "Installation",
+            "location": "Ferkelbau"
+        },
+        {
+            "is_permanent": true,
+            "starts_at": null,
+            "artist_name": "Mingatattoo",
+            "title": "Mingatattoo",
+            "duration": null,
+            "description": "Geplant wäre meine Ausstellung vom letzten Jahr über meine Reise und meinen Erfahrung als Tattoo Künstlerin in Südamerika weiter zuführen. Neben der Einführung in die traditionelle Tattoo Technik Handpoke und meiner persönlichen Philosophie, möchte ich mehr von meinen Reisen als Tätowiererin zeigen.\nWie letztes Jahr wird es auch nach dem theoretischen Teil einen aktiven Teil geben, bei dem man mich persönlich mit der Chance sich ein kleines Tattoo stechen zu lassen, kennenlernen kann. \nEs wäre also eine Chance die Technik am eigenen Leib kennenzulernen und eine kleine Erinnerung von dem Festival auf der Haut zu tragen.",
+            "genre": "Installation",
+            "location": "Rittersaal"
+        },
+        {
+            "is_permanent": true,
+            "starts_at": null,
+            "artist_name": "Daniel Jodocy",
+            "title": "Alles klingt, everything sounds",
+            "duration": null,
+            "description": "Klanginstallation, die mit einem Discoball Motor angetrieben wird.  Alle Materialien aus diesem Projekt sind aus dem Recycling erworben worden.\n\nEine 1 minütige Rotation des Motors lässt Holzschläger durch eine Serie von Metall und Glasgefäße laufen, die somit eine Schleife von Klänge und Rhythmen komponiert.\n\nDurch die mechanische Natur des Instruments verläuft jede Rotation verschieden.  Somit wird sie sich nie wiederholen.",
+            "genre": "Installation",
+            "location": "Belvedere"
+        },
+        {
+            "is_permanent": true,
+            "starts_at": null,
+            "artist_name": "Julia Kopa",
+            "title": "Wurlitzer",
+            "duration": null,
+            "description": "Wurlitzer ist das Wiener Wort für Juke-Box\nDas Konzept wäre, von Festival Besuchern Stichworte und/oder zitatsätze zu bekommen und diese grafisch, malerisch, bauend, leuchtend in eine räumlich-situative Assemblage bzw Installation einzuarbeiten - ein work in progress der zum Festivalende beendet sein sollte",
+            "genre": "Installation",
+            "location": "Arthok"
+        },
+        {
+            "is_permanent": true,
+            "starts_at": null,
+            "artist_name": "Adam",
+            "title": "Quintessenz",
+            "duration": null,
+            "description": "",
+            "genre": "Installation",
+            "location": "Arthok"
+        },
+        {
+            "is_permanent": true,
+            "starts_at": null,
+            "artist_name": "Pandora Pop",
+            "title": "Wald ein. Wald aus",
+            "duration": null,
+            "description": "",
+            "genre": "Installation",
+            "location": "Kasse"
+        },
+        {
+            "is_permanent": true,
+            "starts_at": null,
+            "artist_name": "Rainer Duvall",
+            "title": "Produktionsstruktur LPG",
+            "duration": null,
+            "description": "",
+            "genre": "Installation",
+            "location": "Arthok"
+        }
+    ],
+    "per_day": {
+        "2024-08-01": [
+            {
+                "is_permanent": false,
+                "starts_at": "2024-08-01T16:00:00Z",
+                "artist_name": "Festival für Freunde",
+                "title": "Eröffnung",
+                "duration": "PT30M",
+                "description": "Feierliche Eröffnung",
+                "genre": "Meta",
+                "location": "Bar"
+            },
+            {
+                "is_permanent": false,
+                "starts_at": "2024-08-01T17:00:00Z",
+                "artist_name": "King Roland & Tahini (Rollin`Art Kollektiv)",
+                "title": "„Die Seifenblasen Inklusive“",
+                "duration": "PT1H",
+                "description": "Der spastisch gelähmte Roland Walter ist ein wahrer Künstler! Immer wieder erfindet er sich neu und versucht ebenso neue Wege zu ergründen um mit Menschen in Kontakt zu kommen, egal ob mit Literatur, Performance oder Musik. Er baut Barrieren ab und reisst Mauern nieder mit charmanter Art und mit einem Lächeln, welches auch die letzte Unsicherheit im Umgang mit ihm verpuffen lässt. In dieser Art Hybriden Mitmach-Performance koppelt er mit seiner Partnerin Isabell Richter, Musik mit der Welt der Seifenblasen. Beginnend mit einer experimentellen Musikperformance, welche übergroße schwebende Wesen bei ihrem Tanz zwischen den Menschen begleitet, werden die Betrachter magisch in diesen Bann gezogen. Ein speziell modifizierter Rollstuhl und Instrumente werden ihm die Möglichkeit geben auf das Spiel seiner Partnerin einzusteigen und gemeinsam hüllen sie Menschen ein und schaffen faszinierende schwebende Geschöpfe. Das Bedürfnis sie anzufassen und ihnen nah zu sein, wird erfahrungsgemäß schnell sehr groß, sodass wir am Ende der Performance alle Großen und kleinen Zuschauer einladen, auch schillernde Gebilde zu erschaffen und selbst Teil der Performance zu werden! Taucht mit uns ein in eine faszinierte Welt in der sich alles ein kleines Stück langsamer bewegt.",
+                "genre": "Hybrid",
+                "location": "Wiese"
+            },
+            {
+                "is_permanent": false,
+                "starts_at": "2024-08-01T18:30:00Z",
+                "artist_name": "Franz-Josef Schmitt",
+                "title": "Die Wiedereröffnung des Festivals der abstrakt absurden Pinakothek der künstlichen Intelligenz",
+                "duration": "PT1H",
+                "description": "Willkommen zur Wiedereröffnung des Festivals der abstrakt-Absurden Pinakothek der Künstlichen Intelligenz! Nach einem sensationellen Debüt letztes Jahr kehren wir zurück mit noch abgefahreneren, absurderen und kafkeskeren Motiven, die durch modernste KI-Tools wie Dall-E und Midjourney erzeugt werden. Diese neuen Werke sind wahrhaft mindblowing, sie überschreiten die Grenzen der Vorstellungskraft und laden Sie ein in eine Welt, wo Realität und digitale Fantasie verschmelzen.\n\nUnser Festival ist nicht nur eine Ausstellung, sondern ein immersives Erlebnis. Besucher werden Teil der Ausstellung, indem ihre Stofflichkeit in den kafkaesken Kreationen der künstlichen Intelligenz aufgeht. Ihre Fragen und Gedanken werden Teil dieser absurd-abstrakten Pinakothek, digitalisiert und direkt in Ihr Bewusstsein implementiert.\n\nDiese neue Edition des Festivals zielt darauf ab, Wissenschaft und Kunst auf eine noch nie dagewesene Art und Weise zu verknüpfen. Mit fortschrittlicher KI-Technologie erzeugen wir realistische Bilder von unglaublicher Schönheit und Detailgenauigkeit, die die Grenzen zwischen impressionistischer und expressionistischer Kunst neu definieren. Unser Ansatz wandelt komplexe wissenschaftliche Konzepte in atemberaubende visuelle Darstellungen um, die sowohl zum Nachdenken anregen als auch tiefgründige emotionale Reaktionen hervorrufen.\n\nWir laden Menschen jeden Alters und jeder Herkunft ein, Teil dieses revolutionären Erlebnisses zu sein. Tauchen Sie ein in die Tiefen des Weltalls, entdecken Sie die Wunder des Universums auf neue Weise und erleben Sie, wie Ihre eigene Neugier in die digitale Welt der Kunst integriert wird.\n\nSeien Sie bereit, Ihre Sinne zu öffnen und in eine neue Welt der Wissenschaft und Kunst einzutauchen. Unterstützen Sie uns dabei, die Wissenschaftskommunikation auf eine noch nie dagewesene Ebene zu heben. Wir freuen uns auf Ihren Besuch bei der Wiedereröffnung des Festivals der abstrakt-Absurden Pinakothek der Künstlichen Intelligenz – ein Erlebnis, das garantiert Ihre Vorstellungskraft sprengen wird!",
+                "genre": "Hybrid",
+                "location": "Kino"
+            },
+            {
+                "is_permanent": false,
+                "starts_at": "2024-08-01T20:00:00Z",
+                "artist_name": "DIE VERWANDLUNG",
+                "title": "DIE VERWANDLUNG - Kafka Konzert",
+                "duration": "PT1H15M",
+                "description": "Erzählerische Essenzen, atmosphärische Klangräume, Wort, Körper und Stimme: Das Trio DIE VERWANDLUNG arbeitet mit Mitteln der Musik und der darstellenden Künste, um Franz Kafkas Literatur auf die Bühne zu bringen. Eine Schauspielerin und zwei Theatermusiker schreiben Musik für die markanteste Literatur des 20. Jahrhunderts - mit Gitarre, Synthesizer und Beats, Handpan und präpariertem Klavier. Zwischen Verwirrung und Klarheit, zwischen Alptraum und Lachanfall, zwischen Franz und Felice spannt DIE VERWANDLUNG musikalische Fäden und öffnet einen neuen Zugang zu Kafkas Welt.",
+                "genre": "Hybrid",
+                "location": "Theaterstall"
+            }
+        ],
+        "2024-08-02": [
+            {
+                "is_permanent": false,
+                "starts_at": "2024-08-02T12:00:00Z",
+                "artist_name": "Tur Tur Theater",
+                "title": "Orpheus & Eurydike",
+                "duration": "PT45M",
+                "description": "Der griechische Mythos von Orpheus und Eurydike im modernen Gewand. „Orphea“ begibt sich, nur mit ihrer Singstimme bewaffnet, auf die Reise in die Unterwelt, wo sie zahlreiche Hindernisse überwinden muss, bis sie schließlich den Sieg über den König der Unterwelt davontragen und ihren geliebten „Eurydikuss“ zurück in die Welt der Lebenden bringen kann. Eine zauberhafte Geschichte von Liebe, Mut und Abenteuer, mit viel Witz, Gesang und Leichtigkeit inszeniert.",
+                "genre": "Kindertheater",
+                "location": "Wiese"
+            },
+            {
+                "is_permanent": false,
+                "starts_at": "2024-08-02T12:30:00Z",
+                "artist_name": "Beng & Beng",
+                "title": "Impro Workshop",
+                "duration": "PT2H",
+                "description": "",
+                "genre": "Workshop",
+                "location": "Kino"
+            },
+            {
+                "is_permanent": false,
+                "starts_at": "2024-08-02T13:30:00Z",
+                "artist_name": "Theater im Kino",
+                "title": "Hamlet zum kotzen",
+                "duration": "PT1H30M",
+                "description": "",
+                "genre": "Theater",
+                "location": "Alte Scheune"
+            },
+            {
+                "is_permanent": false,
+                "starts_at": "2024-08-02T15:30:00Z",
+                "artist_name": "The late train",
+                "title": "MUSICA BIZZARRA",
+                "duration": "PT1H",
+                "description": "",
+                "genre": "Musik",
+                "location": "Kirche"
+            },
+            {
+                "is_permanent": false,
+                "starts_at": "2024-08-02T17:00:00Z",
+                "artist_name": "Theater im Kino",
+                "title": "Lulu",
+                "duration": "PT1H30M",
+                "description": "",
+                "genre": "Theater",
+                "location": "Theaterstall"
+            },
+            {
+                "is_permanent": false,
+                "starts_at": "2024-08-02T18:30:00Z",
+                "artist_name": "Julian Zwingel et al.",
+                "title": "Birds & Dreamers",
+                "duration": "PT1H",
+                "description": "",
+                "genre": "Theater",
+                "location": "Alte Scheune"
+            },
+            {
+                "is_permanent": false,
+                "starts_at": "2024-08-02T20:00:00Z",
+                "artist_name": "5Raumfenster",
+                "title": "Festival-Bookingvorschlag - Rockternative Band 5Raumfenster aus Leipzig",
+                "duration": "PT1H",
+                "description": "Angefangen in einem Proberaum mit fünf Fenstern, sind die fünf Musiker in klassischer Bandbesetzung mittlerweile zu besten Freunden zusammengewachsen - aber vor allem zu einer Newcomerband voller Leidenschaft und Ehrgeiz. Mit ihren ehrlichen Texten, rockigen Klängen und ihrer energiegelandenen Bühnenperformance, treffen sie mitten ins Herz und reißen das Publikum mit. \nSo hat die Band bereits einige Erfolge vorzuweisen. Als \"Beliebteste Nachwuchsband Sachsens\" gekrönt, haben sie als Vorband für namhafte Bands wie Karussell, Baby Of The Bunch, Doctor Krapula und Hi! Spencer gespielt. Sie teilten sich bereits die Festivalbühnen mit Künstlern wie Jeremias, Milliarden, Itchy, Blackout Problems und Betterov. Mit über 150 fulminanten Konzerten und dem Gewinn des Leipziger zeigt Courage Jugendfestivals im Juni 2022 zeigen sie, dass sie keine gewöhnliche Newcomerband von nebenan sind.",
+                "genre": "Musik",
+                "location": "Wiese"
+            }
+        ],
+        "2024-08-03": [
+            {
+                "is_permanent": false,
+                "starts_at": "2024-08-03T11:00:00Z",
+                "artist_name": "Producciones Abismales",
+                "title": "Umwelttheater",
+                "duration": "PT30M",
+                "description": "Unsere erste Produktion\" Die Drachen des Meeres\", thematisiert die Problematik der Meeresverschmutzung durch Plastik und kann als visuell-poetisches Figurentheater von Menschen aller Kulturkreise und Altersgruppen verstanden werden. Unsere Protagonisten sind ein gigantischer Fisch und ein Taucher. Beiden ist das Plastik fremd. Sie lernen sich kennen und geraten bald in große Schwierigkeiten, durch das Plastik verursacht. Diese Geschichte soll das Bewusstsein für die Verantwortung, die wir alle tragen, schärfen. Als interaktives Theaterstück zeigt es auf eindrucksvolle Weise den Verpackungswahnsinn und Strategien zur Abfallvermeidung auf.",
+                "genre": "Performance",
+                "location": "Wiese"
+            },
+            {
+                "is_permanent": false,
+                "starts_at": "2024-08-03T12:00:00Z",
+                "artist_name": "Kanaltheater",
+                "title": "Weltrettung naht ODER: Die Welt ist in Gefahr - Rettung naht aus Eberswalde",
+                "duration": "PT1H20M",
+                "description": "Ein Open Air Trash Punk Disko Theater zur Zukunft unserer Erde.\nDer Countdown läuft. In wenigen Tagen, Stunden wird die Versorgung im gesamten Land eingestellt. Kein Strom, kein Krankenhaus, keine Polizei, keine Einkaufsmöglichkeit, kein Nahverkehr mehr. Alle Einwohner_innen sind aufgefordert ihre Häuser und Wohnungen zu verlassen und in das ZENTRUM zu ziehen. Das ZENTRUM ist die Stadt der Zukunft. Hier kann man ressourcenschonend, geschützt vor der herannahenden Klimakrise, vor Stürmen, Hochwasser und Lebensmittelknappheit ein neues Leben beginnen und seine eigene Utopie finden. Wer aber draußen bleiben will, bleibt draußen. Dann aber auf eigene Gefahr, versteht sich.\n2015 gab es ein Happy End, Rettung nahte aus Eberswalde. Wie sieht es 2024 aus? Alle Klimaziele wurden gerissen. Ist die Menschheit unbelehrbar langsam, finden unsere Expert*innen einen Ausweg? Braucht es ein Happy-End? Upcyceln ist auf jeden Fall ein Anfang. \nWELTRETTUNG NOW! soll wiederum eine Open-Ar-Produktion werden. Unser Science-Fiction zeigt ein schillerndes Universum einer zukünftigen Gesellschaft, die um ihr Überleben im Angesicht des Klimawandels ringt. Dazu gehört eine Band, denn die Musik ist ein starkes künstlerisches Element in unseren Arbeiten. Die beiden Kontrahenten des Stückes: das Zentrum und die postapokalyptischen Punks werden durch unterschiedliche Musikstile repräsentiert, gespielt von der Kanaltheater-Band.",
+                "genre": "Theater",
+                "location": "Arthok"
+            },
+            {
+                "is_permanent": false,
+                "starts_at": "2024-08-03T13:30:00Z",
+                "artist_name": "Jannis Eggelsmann",
+                "title": "Fish and Ships",
+                "duration": "PT50M",
+                "description": "\"Fish and Ships\" ist eine 50 Minuten lange Mime performance die Körpertheater mit experimentellen Atmosphärischen Elementen aus Tanz und Theater zum Ausdruck bringt. \n\nSobald dir der ersten Wunsch erfüllt wurde, werden dir weitere größere Wünsche erfüllt. Was aber, wenn es durch die Versorgung an der Tür scheitert? Er wartet bereits am Guckloch um sein Paket zu empfangen.\n\nDie Geschichte erzählt ein Dilemma eines ausgebüchsten Patienten, welcher sich seiner neuen Smartwatch vollkommen anvertraut und sich optimal mit ihr verbinden. Durch die ständige Optimierung und den Änderungsvorschläge bleibt der Frieden erhalten und liefert einen guten Ablauf für den Tag. Das hätte man sich Gewünscht, doch es nimmt alles einen anderen Lauf.",
+                "genre": "Performance",
+                "location": "Theaterstall"
+            },
+            {
+                "is_permanent": false,
+                "starts_at": "2024-08-03T15:00:00Z",
+                "artist_name": "heesch und ko",
+                "title": "\"Wenn du einen Wal sehen willst\" - für alle ab vier Jahren",
+                "duration": "PT45M",
+                "description": "Wenn du einen Wal sehen willst (AT)\nEin performatives Stück Objekttheater  für Kinder ab 4 Jahren nach dem gleichnamigen Kinderbuch von Julie Fogliano und Erin E. Stead\n\nSpiel/Stückentwicklung: Martin Heesch - https://www.theapolis.de/de/profil/martin-heesch\nRegie/Stückentwicklung: Andreas Mihan - http://andreu-andreu.de \nDas Buch:\n„Wenn du einen Wal sehen willst, richte beide Augen aufs Meer …und warte …und warte …und warte …“\nKinder lieben es, ihrer Phantasie freien Lauf zu lassen und sich in fremde Welten zu träumen. Dabei sehen sie Dinge, die nicht immer offensichtlich sind. Dazu reicht manchmal ein Blick aus dem Fenster, aufs Meer, in den Himmel voller Wolkenbilder oder auf eine Wiese voller Blumen. Und mit viel Zeit, Geduld und Muße werden ganz kleine Dinge zu großen aufregenden Abenteuern. Vielleicht entdeckt man dabei sogar einen Wal.\n\nThematik: \nWarten, Geduld und Tagträumen\n\nGeduld ist eine aus Kindersicht ziemlich überflüssige Tugend. Aus Kindersicht besteht das halbe Leben aus Warten. Dauernd muss man warten, bevor man endlich loslegen darf. Man wartet aufs Essen, aufs Freiwerden von Schaukel und Rutsche oder aufs Baden.Und dazu kommt die ständige Warterei auf Weihnachten und Geburtstage oder auf die Ferien.\nDoch hier ist ein Buch, das von der Lust allen Wartens erzählt: Die beiden Autorinnen schildern die wundersame Geschichte von einem, der auszog, einen Wal zu sehen.\n\n\nInszenierung:\nDie beiden Theatermacher werden auf Basis des Kinderbuchs mittels Improvisationen und Verwendung von Materialien und Alltagsobjekten, die spielerisch belebt werden, sowie Klängen und Geräuschen das Stück entwickeln. Premiere wird am 13.4.2024 im ABC Hirschgarten (Berlin)  sein -hier schon mal eine herzliche Einladung - danach gibt es auch einen Mitschnitt.",
+                "genre": "Kindertheater",
+                "location": "Wiese"
+            },
+            {
+                "is_permanent": false,
+                "starts_at": "2024-08-03T15:00:00Z",
+                "artist_name": "Frederike Meyer",
+                "title": "Hatha Yoga und Ecstatic Dance",
+                "duration": "PT1H30M",
+                "description": "Ich bin Frederike, zertifizierte Yogalehrerin für Integrales Hatha Yoga in Hamburg. Körperliches Yoga ist für mich Ausdruck von Freiheit im Körper und in der Bewegung. Atemübungen schenken Freiheit und Klarheit für die Gedanken, während Meditation die Freiheit meines Wesens bedeutet. Beim Ecstatic Dance dürfen alle Emotionen frei herausgetanzt werden, und der Körper folgt dabei intuitiv und ohne Form. Ich freue mich darauf, meine Begeisterung für die Bewegung mit euch zu teilen und biete während des Festivals Hatha Yoga sowie eine Ecstatic Dance Session an:\n\nTag 1, Morgens (90 Minuten): Sanftes Hatha Yoga, einfache Atemübungen und eine beruhigende Meditation zum Ankommen.\n\nTag 2, Abends (90 Minuten): Verbindung von Hatha Yoga mit Bewegung, Schüttelpraxis und spielerische Erkundung des eigenen Körpers.\n\nTag 3, Abends (120 Minuten): Einleitung zur Ecstatic Dance Tanzsession, mit abschließender Meditation.\nTag 1, Morgens (90min): Sanftes Hatha Yoga, einfache Atemübungen und eine beruhigende Meditation zum Ankommen.\n\nTag 2, Abends (90min): Verbindung von Hatha Yoga mit Bewegung, Schüttelpraxis und spielerische Erkundung deines Körpers. \n\nTag 3: Abends (120min):  Einleitung zur Ecstatic Dance Tanzsession, mit abschliessender Mediation.",
+                "genre": "Workshop",
+                "location": "Alte Scheune"
+            },
+            {
+                "is_permanent": false,
+                "starts_at": "2024-08-03T16:00:00Z",
+                "artist_name": "Matthias Hufnagl",
+                "title": "Afterglow",
+                "duration": "PT1H",
+                "description": "Literarische Miniaturen, Fotografien und Lyrik, inspiriert von Erfahrungen aus über 20 Jahren Musikjournalismus. Abende bei Dee Dee Ramone, Gespräche mit Skin von Skunk Anansie, Warten auf Pete Doherty sowie Skurrilitäten auf nächtlichen Clubterrassen – eine Ode an die Nacht und ihren Soundtrack.\n--------------------------------------------\nDr. Pop alias Markus Henrik (bekannt u.a. von Radio Eins) schreibt dazu:\nDer Sound von Matthias Hufnagl ist wie Britpop, als er noch independent war. Melodisch, rau, aber klar zu Höherem berufen. Kaufen Sie dieses Buch, bevor es ein Major-Label tut.\n---------------------------------------------\nund die Berliner Autorin Isobel Markus sagt:\nAfterglow erzählt vom Leben hinter den Kulissen abseitiger Orte. Mit wunderbaren Geschichten von Liebe, Tod und Lebensfreude.\nMit unhörbar lauter Musik von den Ramones, Skunk Anansie, den Babyshambles und Good Charlotte. Dazu nachdenklich zarte, lyrische Töne und gehörig viele Flüche. Afterglow glüht nach.\n-----------------------------------------------\nDas Ganze kurzweilig. Die Lesung selbst dauert ca. 40 bis 60 Minuten, zur musikalischen Untermalung spielt Hufnagl ein paar Songs vom tragbaren Plattenspieler. Dann finden Stücke der Ramones, Babyshambles, The Sonics, Sharon Jones, Skunk Anansie oder der Beatsteaks ihren Weg ins Programm. Mit im Gepäck hat Hufnagl in diesem Sommer zwei neue Geschichten: Dann geht es um Kurt Cobains letzten Auftritt und explosive Tanzflächen.",
+                "genre": "Lesung",
+                "location": "Alte Scheune"
+            },
+            {
+                "is_permanent": false,
+                "starts_at": "2024-08-03T17:30:00Z",
+                "artist_name": "Festival Für Freunde & Wenn Orte sprechen",
+                "title": "BRACHLAND-EIN STÜCK AUS DAHNSDORF",
+                "duration": "PT1H30M",
+                "description": "",
+                "genre": "Theater",
+                "location": "Theaterstall"
+            },
+            {
+                "is_permanent": false,
+                "starts_at": "2024-08-03T19:00:00Z",
+                "artist_name": "Fliegende Haie",
+                "title": "Konzert",
+                "duration": "PT1H",
+                "description": "2023 war definitiv das Jahr der Haie:\n\n- dicke Festivals wie Open Flair, SommerPalooza, Wudzdog (Post-Headliner) uvm.\n - Debut-Album mit bis dato über 200.000 Streams\n - gefördert durch die Initiative Musik & frisch in der Spitzenförderung BY.on (Festivalslots können also finanziell unterstützt werden!)\n-  1. Platz beim Local Heroes Bayern-Finale auf dem Ab geht die Lutzi und damit im Bundesfinale\n- Tour-Support u.a. von Fortuna Ehrenfeld\n- Deutschlandfunk Kultur, Süddeutsche Zeitung, PULS ... \n\n➽ Die wichtigsten Infos inkl. Sound & Live-Video: www.fliegendehaie.com/epk",
+                "genre": "Musik",
+                "location": "Wiese"
+            },
+            {
+                "is_permanent": false,
+                "starts_at": "2024-08-03T20:30:00Z",
+                "artist_name": "Defri Rafiki",
+                "title": "Abstrakte Kunst & Expressionismus",
+                "duration": "PT1H",
+                "description": "Künstlerische Aussage:\nDarren Nötzelmanns Kunst ist eine Reflexion seiner Faszination für das Universum und die Geheimnisse, die es birgt, sowie die Farbenvielfalt der Natur. In seinen Werken spiegelt sich auch seine innere Gedankenwelt wider, die er als abstrakt und farbenfroh beschreibt. Sein abstrakter Stil verkörpert seine intensiven emotionalen Zustände, die er unmittelbar auf die Leinwand überträgt. Seine kreativen Prozesse werden oft durch Musik stimuliert, die ihm hilft, tiefgreifende Gefühle auszudrücken und seine innere Welt zu meistern. \nNötzelmanns Kunst ist letztlich eine Spiegelung seiner eigenen Persönlichkeit - abstrakt, expressiv und lebendig. Sie ist seine einzigartige Interpretation der Welt, ein Versuch, das Unsagbare und Unbegreifbare darzustellen und dabei gleichzeitig einen Teil seiner selbst preiszugeben",
+                "genre": "Installation",
+                "location": "Rittersaal"
+            },
+            {
+                "is_permanent": false,
+                "starts_at": "2024-08-03T21:30:00Z",
+                "artist_name": "t.b.a",
+                "title": "Auflegerei",
+                "duration": "PT3H",
+                "description": "Etwas mit Mukke",
+                "genre": "DJ",
+                "location": "Kino"
+            }
+        ],
+        "2024-08-04": [
+            {
+                "is_permanent": false,
+                "starts_at": "2024-08-04T09:30:00Z",
+                "artist_name": "Frederike Meyer",
+                "title": "Hatha Yoga und Ecstatic Dance",
+                "duration": "PT1H30M",
+                "description": "Ich bin Frederike, zertifizierte Yogalehrerin für Integrales Hatha Yoga in Hamburg. Körperliches Yoga ist für mich Ausdruck von Freiheit im Körper und in der Bewegung. Atemübungen schenken Freiheit und Klarheit für die Gedanken, während Meditation die Freiheit meines Wesens bedeutet. Beim Ecstatic Dance dürfen alle Emotionen frei herausgetanzt werden, und der Körper folgt dabei intuitiv und ohne Form. Ich freue mich darauf, meine Begeisterung für die Bewegung mit euch zu teilen und biete während des Festivals Hatha Yoga sowie eine Ecstatic Dance Session an:\n\nTag 1, Morgens (90 Minuten): Sanftes Hatha Yoga, einfache Atemübungen und eine beruhigende Meditation zum Ankommen.\n\nTag 2, Abends (90 Minuten): Verbindung von Hatha Yoga mit Bewegung, Schüttelpraxis und spielerische Erkundung des eigenen Körpers.\n\nTag 3, Abends (120 Minuten): Einleitung zur Ecstatic Dance Tanzsession, mit abschließender Meditation.\nTag 1, Morgens (90min): Sanftes Hatha Yoga, einfache Atemübungen und eine beruhigende Meditation zum Ankommen.\n\nTag 2, Abends (90min): Verbindung von Hatha Yoga mit Bewegung, Schüttelpraxis und spielerische Erkundung deines Körpers. \n\nTag 3: Abends (120min):  Einleitung zur Ecstatic Dance Tanzsession, mit abschliessender Mediation.",
+                "genre": "Workshop",
+                "location": "Dschungel"
+            },
+            {
+                "is_permanent": false,
+                "starts_at": "2024-08-04T11:00:00Z",
+                "artist_name": "AnJu",
+                "title": "us/wir/nous",
+                "duration": "PT45M",
+                "description": "Die interaktive und mobile Tanz- und Musik Performance \"us/wir/nous\" beschäftigt sich mit dem Thema der Verbundenheit und unserer vielfältigen Beziehungen. Wer sind WIR? Wer oder Was definiert uns, wer WIR sind und was uns verbindet?  \n\nGemeinsam in Beziehung, in unterschiedlichsten Situationen und Formen, in einer Familie, unter Freund*innen, in Einrichtungen wie Kitas und Schulen, in Ausbildungsstätten und Universitäten, im Beruf, im öffentlichen Leben wie auf der Straße, in öffentlichen Orten wie einem Krankenhaus oder einem Supermarkt, in Beziehung und Abhängigkeit einer Klassengesellschaft, in Herkunft und sozialem Standpunkt, in parallel Gesellschaften, im unmittelbarem Umfeld und global betrachtet… Was bedeutet WIR?  \n\nDie Tänzerin und der Musiker spielen zusammen, miteinander und manchmal allein. Sie spinnen einen Faden durch den Raum und schaffen gemeinsam eine Atmosphäre, die das Publikum auf die Bühne einlädt. Sie begegnen sich durch Rhythmus und Bewegung, woraus neue Bilder unserer zwischenmenschlichen Beziehungen entstehen. \n\nDas Duo beschäftigt sich außerdem mit der Frage der Partizipation und dem Austausch mit dem Publikum und stellt sich jedes Mal auf neue Impulse, Improvisationsmöglichkeiten und räumliche Atmosphären ein um in einem konstanten Dialog mit den Zuschauer*innen zu bleiben.  \n\nNach den mobilen Solo-Performances „i…livin’ space” und “u…sci fi” von Andreas Pichler ist „us/wir/nous“ der 3. Teil dieser Trilogie. Eine erste Entstehungsphase der Performance hat im Rahmen des 10. Jubiläums der Lake Studios für die „Unfinished Fridays – Junior“ stattgefunden. Das Stück hatte im September 2023 im Theater o.N. Premiere.",
+                "genre": "Kindertheater",
+                "location": "Alte Scheune"
+            },
+            {
+                "is_permanent": false,
+                "starts_at": "2024-08-04T12:30:00Z",
+                "artist_name": "Alica Minar & col.",
+                "title": "WOODS WON'T VAPORIZE",
+                "duration": "PT1H40M",
+                "description": "WOODS WON’T VAPORIZE\nA journey towards nature: a surreal dreamland dwelling in the soft connections of the forest ecosystem\n\nOne tree, two trees, three trees... woods. \n\nA group of dancers together with a wide artistic team take us on a vibrant re-discovery of the forest within and around us - a complex and deeply interconnected system that lies beyond our comprehension in its own temporality. \n\nWOODS WON’T VAPORIZE creates a surreal dreamland inspired by the forest ecosystem and the anatomy of trees. It invites you to stretch your roots, sense their mutual touch, ground yourself, imagine the decomposition of your tissues, feel the sap flow, and breathe. It is a reminder that while humans wage forest wars amongst each other, the forest continues to live its life cycles far from the human illusion of control. The woods won’t give up - they will stay - they will outlive us, they will not evaporate.\n\nThis cycle of dance works stems from a long-term, process-oriented artistic research. It offers recent graduates and students in their final year of dance studies one of their first professional experiences and access to a thick network of artists and venues. By creating on the go and interweaving with the audience in several different performance formats, WOODS WON’T VAPORIZE is organically morphing towards its final form.\n\nArtistic direction and choreography: Alica Minar\nArtistic research: Dorota Michalak, Alica Minar\nPerformance and creation: Adela Maharani, Eduard Adam Orzsulik, Helén Tamaskó, Lenka Vořechovská, Milena Romanenko, Neus Montané, Suze Vonk\nSet and costume design: Anna Poleteli\nDramaturgy: Zuzana Žabková\nMovement collaboration: Breeanne Saxton\nText and research: Katarína Bakošová\nMusic: Vi Huyen Tran\nLight design: Raquel Rosildete\nChoreography assistance: Areti Athanasopoulou\nSet and costume design assistance: Hana Brandejs\nConsultation: Zuna Kozánková, Erik Baláž\nProduction: Lauren Fitzgerald and Alica Minar & col. \n\nFull credits of supporters and German version of the text see here: https://docs.google.com/document/d/1Y5V9CVtfPrimmVw92bFCBwuCXGZ-YnODo3AOlSJTUgc/edit?usp=sharing",
+                "genre": "Tanz",
+                "location": "Wiese"
+            },
+            {
+                "is_permanent": false,
+                "starts_at": "2024-08-04T15:00:00Z",
+                "artist_name": "Casino gitano",
+                "title": "Tanzvergnügen",
+                "duration": "PT1H30M",
+                "description": "...\" Menschen kommen, Menschen gehen, aber Casino Gitano sind seite 2002 immer noch eine der aufregensten Bands Berlins.Mit ihrer ewig wechselnd Besetzung sind sie quasi selbst ein Abbild der Bevölkerung des Bezirks Kreuzberg. Gypsy-Polka-Swing-Rhytmen, melodiösen Chansons, balkanischer Flamenco, egal der Stil, über diesem musikalischen Roulette, liefert die Band eine Live-Performance,die am Lebensfreude und Leidenschaft, nicht zu übertreffen ist.\"\n\"..Kurz vor dem zweiten Lockdow haben Casino Gitano noch schnell das Video zu Ihrem vor Lebensfreude nur so sprudenlden Song,,Le cri du papillon\"- Der Schrei des Schmetterlings produziert.Für Casino Gitano steht, wie sie sagen, der Schmetterling für Musik, Kultur und die Liebe und Freiheit, die sich darin ausdrücken. Und ganz gleich wie der Wind weht, wird diese Schönheit immer wieder neu geboren und beflügelt jeden der damit in Berührung kommt\"\n-(Ein Achtel Lorbeerblatt/David Wonschewski-15nov2020)",
+                "genre": "Musik",
+                "location": "Wiese"
+            }
+        ]
+    }
+}

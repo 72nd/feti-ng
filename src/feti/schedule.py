@@ -53,8 +53,7 @@ class ScheduleEntry(BaseModel):
             artist_name=entry.name,
             title=entry.title,
             duration=entry.duration,
-            # description=entry.description,
-            description="",
+            description=entry.description,
             genre=entry.genre.value,
             location=location.name,
         )
@@ -83,6 +82,7 @@ class ScheduleEntry(BaseModel):
 
 
 class Schedule(BaseModel):
+    event_name: str
     permanent: list[ScheduleEntry] = []
     per_day: dict[date, list[ScheduleEntry]] = {}
 
@@ -92,6 +92,7 @@ class Schedule(BaseModel):
         entries: list[Entry],
         locations: list[Location],
         timetable: list[Timetable],
+        event_name: str,
     ):
         entry_dict = {
             item.row_id: item for item in entries if item.row_id is not None
@@ -100,7 +101,9 @@ class Schedule(BaseModel):
             item.row_id: item for item in locations if item.row_id is not None
         }
 
-        rsl = cls()
+        rsl = cls(
+            event_name=event_name
+        )
 
         for tt_entry in timetable:
             tmp = ScheduleEntry.from_baserow(

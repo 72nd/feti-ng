@@ -12,7 +12,7 @@ Use your favorite HTTP-server to serve the content of the `web` directory. Done.
 
 ## Generate the schedule
 
-This Python script takes the data from a Baserow instance and generates a `schedule.json`.
+This Python script takes the data from a Baserow instance and generates a `schedule.json`. Please note that you have to manually edit some fields in the JSON (like for the event name). This fields start with »TODO«.
 
 ### Installation
 
