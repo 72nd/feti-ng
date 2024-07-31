@@ -1,3 +1,7 @@
+# Custom config files
+config.toml
+secrets.toml
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
