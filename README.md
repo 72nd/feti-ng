@@ -25,7 +25,7 @@ pip3 install .
 ### Baserow structure
 
 
-- Table `Bewerbung`
+- Table `Bewerbung` (entry)
     - Text Field `Name` (artist name)
     - Single Select Field `Genre`
     - Text Field `Titel`
@@ -44,7 +44,7 @@ You can alter the names of the fields using the config file.
 
 ### Config file
 
-The configuration happens in the files `config.toml` and `secrets.toml`. You find templates of them in the root of the repository. Create a copy of them and adapt them as needed.
+The configuration happens in the files `config.toml` and `secrets.toml`. You find template for `secrets.toml` templates of them in the root of the repository. Create a copy of them and adapt them as needed.
 
 ```bash
 cp config.tpl.toml config.toml

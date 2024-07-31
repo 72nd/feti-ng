@@ -1,13 +1,28 @@
 import argparse
+import asyncio
 from pathlib import Path
 
+from baserow.client import GlobalClient
 from livereload import Server
 
+from feti.config import config, load_config, load_secrets, secrets
 
-def generate(config: str, secrets: str, output: str):
+
+async def generate(config_path: str, secrets_path: str, output: str):
     """
     Generate the schedule.json based on Baserow data.
     """
+    load_config(config_path)
+    load_secrets(secrets_path)
+    GlobalClient.configure(
+        config().baserow_url,
+        token=secrets().baserow_token,
+    )
+    from feti.baserow import Timetable
+    print(await Timetable.query(size=-1))
+    # timetable = await GlobalClient().list_all_table_rows(config().timetable_table_id, True)
+    # print(timetable)
+    await GlobalClient().close()
 
 
 def serve():
@@ -58,6 +73,6 @@ def main():
     if args.command == "serve":
         args.func()
     elif args.config and args.secrets and args.output:
-        generate(args.config, args.secrets, args.output)
+        asyncio.run(generate(args.config, args.secrets, args.output))
     else:
         parser.print_help()

@@ -7,7 +7,9 @@ authors = [
 description = "Client side rendered timetable app for festivals"
 readme = "README.md"
 dependencies = [
-    "pydantic"
+    "baserowdantic",
+    "pydantic",
+    "tomli >= 1.1.0 ; python_version < '3.11'"
 ]
 classifiers = [
     "Programming Language :: Python :: 3.9",

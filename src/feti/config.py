@@ -1,3 +1,5 @@
+from typing import Optional
+from livereload.watcher import glob
 from pydantic import BaseModel
 
 import sys
@@ -8,7 +10,12 @@ else:
     import tomli as tomllib
 
 
+__config: Optional["Config"] = None
+__secrets: Optional["Secrets"] = None
+
+
 class Config(BaseModel):
+    baserow_url: str
     entry_table_id: int
     entry_name_field: str
     entry_genre_field: str
@@ -30,6 +37,18 @@ class Config(BaseModel):
         return cls(**data)
 
 
+def load_config(path: str):
+    global __config
+    __config = Config.from_file(path)
+
+
+def config() -> Config:
+    global __config
+    if __config is None:
+        raise RuntimeError("config was not loaded")
+    return __config
+
+
 class Secrets(BaseModel):
     baserow_token: str
 
@@ -38,3 +57,15 @@ class Secrets(BaseModel):
         with open(path, "rb") as f:
             data = tomllib.load(f)
         return cls(**data)
+
+
+def load_secrets(path: str):
+    global __secrets
+    __secrets = Secrets.from_file(path)
+
+
+def secrets() -> Secrets:
+    global __secrets
+    if __secrets is None:
+        raise RuntimeError("secrets was not loaded")
+    return __secrets
