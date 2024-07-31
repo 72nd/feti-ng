@@ -18,8 +18,8 @@ async def generate(config_path: str, secrets_path: str, output: str):
         config().baserow_url,
         token=secrets().baserow_token,
     )
-    from feti.baserow import Timetable
-    print(await Timetable.query(size=-1))
+    from feti.baserow import Entry, Location, Timetable
+    print(await Entry.query(size=-1))
     # timetable = await GlobalClient().list_all_table_rows(config().timetable_table_id, True)
     # print(timetable)
     await GlobalClient().close()
