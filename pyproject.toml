@@ -1,0 +1,27 @@
+[project]
+name = "feti"
+version = "0.1.0"
+authors = [
+    {name = "72nd", email = "msg@frg72.com"}
+]
+description = "Client side rendered timetable app for festivals"
+readme = "README.md"
+dependencies = [
+    "pydantic"
+]
+classifiers = [
+    "Programming Language :: Python :: 3.9",
+    "Operating System :: OS Independent",
+]
+
+[project.optional-dependencies]
+# Optional dependency for using the livereload for development.
+dev = [
+    "livereload"
+]
+
+[project.scripts]
+feti = "feti:__main__.main"
+
+[tool.setuptools.packages.find]
+where = ["src/"]
