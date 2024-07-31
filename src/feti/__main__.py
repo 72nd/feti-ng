@@ -1,4 +1,5 @@
 import argparse
+from pathlib import Path
 
 from livereload import Server
 
@@ -13,9 +14,13 @@ def serve():
     """
     Serve page with livereload for development purposes.
     """
+    this_files_path = Path(__file__).resolve()
+    root_path = this_files_path.parents[2]
+    web_folder = root_path / "web"
+
     server = Server()
-    server.watch("web/**/*")
-    server.serve()
+    server.watch(web_folder)
+    server.serve(root=web_folder)
 
 
 def main():
@@ -25,19 +30,16 @@ def main():
     parser.add_argument(
         "-c",
         "--config",
-        required=True,
         help="Path to config file",
     )
     parser.add_argument(
         "-s",
         "--secrets",
-        required=True,
         help="Path to the secrets file.",
     )
     parser.add_argument(
         "-o",
         "--output",
-        required=True,
         help="Output file or directory.",
     )
 
@@ -45,8 +47,6 @@ def main():
         dest="command",
         help="Subcommand to run",
     )
-
-    subparsers.required = False  # Make subcommands optional
     parser_serve = subparsers.add_parser(
         "serve",
         help="starts a local webserver with live-reload for development",
@@ -54,8 +54,10 @@ def main():
     parser_serve.set_defaults(func=serve)
 
     args = parser.parse_args()
-    if hasattr(args, "func"):
-        args.func(args)
-    else:
-        # Implement the main functionality when no subcommand is called
+
+    if args.command == "serve":
+        args.func()
+    elif args.config and args.secrets and args.output:
         generate(args.config, args.secrets, args.output)
+    else:
+        parser.print_help()
