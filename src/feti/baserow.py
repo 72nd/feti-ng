@@ -1,5 +1,5 @@
-from datetime import timedelta
-from typing import Optional
+from datetime import datetime, timedelta
+from typing import Any, Optional
 
 from baserow.field import SingleSelectField
 from baserow.table import Table, TableLinkField
@@ -13,13 +13,26 @@ class Entry(Table):
     table_name = "Entry"
     model_config = ConfigDict(populate_by_name=True)
 
-    name: str = Field(alias=config().entry_name_field)
-    genre: str = Field(alias=config().entry_genre_field)
-    title: str = Field(alias=config().entry_title_field)
+    name: Optional[str] = Field(
+        default=None,
+        alias=config().entry_name_field,
+    )
+    genre: Optional[SingleSelectField[Any]] = Field(
+        default=None,
+        alias=config().entry_genre_field,
+    )
+    title: Optional[str] = Field(
+        default=None,
+        alias=config().entry_title_field,
+    )
     duration: Optional[timedelta] = Field(
+        default=None,
         alias=config().entry_duration_field,
     )
-    description: str = Field(alias=config().entry_description_field)
+    description: Optional[str] = Field(
+        default=None,
+        alias=config().entry_description_field,
+    )
 
 
 class Location(Table):
@@ -35,7 +48,7 @@ class Timetable(Table):
     table_name = "Timetable"
     model_config = ConfigDict(populate_by_name=True)
 
-    starts_at: Optional[str] = Field(
+    starts_at: Optional[datetime] = Field(
         default=None,
         alias=config().timetable_datetime_field,
     )
@@ -46,3 +59,6 @@ class Timetable(Table):
         alias=config().timetable_location_field,
     )
     is_permanent: bool = Field(alias=config().timetable_is_permanent_field)
+
+    def debug_str(self) -> str:
+        return f"timetable entry with id {self.row_id} at {self.starts_at}"

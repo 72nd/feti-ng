@@ -3,6 +3,7 @@ import asyncio
 from pathlib import Path
 
 from baserow.client import GlobalClient
+from baserow.filter import AndFilter
 from livereload import Server
 
 from feti.config import config, load_config, load_secrets, secrets
@@ -19,9 +20,15 @@ async def generate(config_path: str, secrets_path: str, output: str):
         token=secrets().baserow_token,
     )
     from feti.baserow import Entry, Location, Timetable
-    print(await Entry.query(size=-1))
-    # timetable = await GlobalClient().list_all_table_rows(config().timetable_table_id, True)
-    # print(timetable)
+    from feti.schedule import Schedule
+    schedule = Schedule.from_baserow(
+        await Entry.query(size=-1),
+        await Location.query(size=-1),
+        await Timetable.query(size=-1),
+    )
+    schedule.sort_schedule()
+    with open(output, "w") as f:
+        f.write(schedule.model_dump_json())
     await GlobalClient().close()
 
 
