@@ -1,3 +1,4 @@
+from pathlib import Path
 from typing import Optional
 from livereload.watcher import glob
 from pydantic import BaseModel
@@ -34,12 +35,23 @@ class Config(BaseModel):
     timetable_entry_field: str
     timetable_location_field: str
     timetable_is_permanent_field: str
+    _path: Path = Path()
 
     @classmethod
     def from_file(cls, path: str):
         with open(path, "rb") as f:
             data = tomllib.load(f)
-        return cls(**data)
+        rsl = cls(**data)
+        rsl._path = Path(path)
+        return rsl
+
+    def as_absolute_path(self, path: str) -> Path:
+        """Handles all given paths relative to the config file."""
+        pth = Path(path)
+        if pth.is_absolute():
+            return pth
+        cfg_dir = self._path.resolve().parent
+        return cfg_dir / pth
 
 
 def load_config(path: str):

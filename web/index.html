@@ -57,6 +57,7 @@
     <section class="section">
         <div class="container">
             <h3 class="title is-3" id="schedule">Programmpunkte</h3>
+            <p class="paragrpah" x-text="event_description"></p>
             <div class="tabs is-centered is-medium">
                 <ul>
                     <template x-for="(dt_str, day) in date_tabs_data()" :key="day">
@@ -92,8 +93,8 @@
                                         </div>
                                     </div>
                                     <div class="content" x-show="entry.description !== ''">
-                                        <span x-text="lead(entry.description, 50)"></span>
-                                        <span x-show="entry.description.split(' ').length > 50">...</span>
+                                        <span x-text="lead(entry.description, 50)"></span><span
+                                            x-show="entry.description.split(' ').length > 50 && !entry.is_expanded">…</span>
                                         <span x-show="entry.is_expanded" x-transition
                                             x-text="after_lead(entry.description, 50)"></span>
                                     </div>
@@ -129,8 +130,8 @@
                             </div>
                         </div>
                         <div class="content" x-show="entry.description !== ''">
-                            <span x-text="lead(entry.description, 50)"></span>
-                            <span x-show="entry.description.split(' ').length > 50">...</span>
+                            <span x-text="lead(entry.description, 50)"></span><span
+                                x-show="entry.description.split(' ').length > 50 && !entry.is_expanded">…</span>
                             <span x-show="entry.is_expanded" x-transition
                                 x-text="after_lead(entry.description, 50)"></span>
                         </div>

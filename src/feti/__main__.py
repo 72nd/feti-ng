@@ -24,13 +24,14 @@ async def deploy(
     await deploy.run()
 
 
-def serve():
+def serve(dir: str):
     """
     Serve page with livereload for development purposes.
     """
     this_files_path = Path(__file__).resolve()
     root_path = this_files_path.parents[2]
-    web_folder = root_path / "web"
+    web_folder = root_path / dir
+    print(web_folder)
 
     if Server is None:
         print(
@@ -69,12 +70,16 @@ def main():
         "serve",
         help="starts a local webserver with live-reload for development",
     )
+    parser_serve.add_argument(
+        "WEB_DIR",
+        help="folder containing the web content"
+    )
     parser_serve.set_defaults(func=serve)
 
     args = parser.parse_args()
 
     if args.command == "serve":
-        args.func()
+        args.func(args.WEB_DIR)
     elif args.config and args.secrets and args.output:
         asyncio.run(deploy(
             args.config,

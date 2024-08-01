@@ -1,7 +1,7 @@
 document.addEventListener("alpine:init", () => {
     Alpine.data("feti", () => ({
-        menu_visible: false,
         event_name: null,
+        event_description: null,
         permanent: [],
         per_day: null,
         selected_date: null,
@@ -17,6 +17,7 @@ document.addEventListener("alpine:init", () => {
                 let rsp = await fetch("/schedule.json");
                 let data = await rsp.json();
                 this.event_name = data.event_name;
+                this.event_description = data.event_description;;
                 this.permanent = data.permanent;
                 // Add expanded property.
                 this.per_day = data.per_day;

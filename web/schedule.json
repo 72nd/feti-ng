@@ -1,5 +1,6 @@
 {
     "event_name": "<Event Name>",
+    "event_description": "<Event Description>",
     "permanent": [
         {
             "is_permanent": true,

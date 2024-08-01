@@ -83,6 +83,7 @@ class ScheduleEntry(BaseModel):
 
 class Schedule(BaseModel):
     event_name: str
+    event_description: str
     permanent: list[ScheduleEntry] = []
     per_day: dict[date, list[ScheduleEntry]] = {}
 
@@ -93,6 +94,7 @@ class Schedule(BaseModel):
         locations: list[Location],
         timetable: list[Timetable],
         event_name: str,
+        event_description: str,
     ):
         entry_dict = {
             item.row_id: item for item in entries if item.row_id is not None
@@ -102,7 +104,8 @@ class Schedule(BaseModel):
         }
 
         rsl = cls(
-            event_name=event_name
+            event_name=event_name,
+            event_description=event_description
         )
 
         for tt_entry in timetable:
