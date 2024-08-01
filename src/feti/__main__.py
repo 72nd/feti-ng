@@ -2,7 +2,6 @@ import argparse
 import asyncio
 from pathlib import Path
 
-from baserow.client import GlobalClient
 try:
     from livereload import Server
 except ImportError:

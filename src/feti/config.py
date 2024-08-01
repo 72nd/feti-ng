@@ -1,6 +1,5 @@
 from pathlib import Path
 from typing import Optional
-from livereload.watcher import glob
 from pydantic import BaseModel
 
 import sys
