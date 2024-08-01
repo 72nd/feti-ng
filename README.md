@@ -1,20 +1,18 @@
 # feti-ng
 
-HTML5 client side festival timetable with static site generator. Uses AlpineJS to render the `schedule.json` as a responsive timetable. Can be deployed using any simple HTTP server.
+A client-side HTML5 festival timetable with a static site generator. It uses AlpineJS to render `schedule.json` into a responsive timetable that can be hosted on any simple HTTP server.
 
-The python script is used to generate a `schedule.json` from our Baserow instance.
-
+A Python script generates the `schedule.json` from data stored in our Baserow instance.
 
 ## Usage
 
-Use your favorite HTTP-server to serve the content of the `web` directory. Done. You can alter the schedule, etc. by editing the files within `web`.
+Serve the content of the `web` directory using your preferred HTTP server. To modify the schedule or other content, edit the files within the `web` directory.
 
-If a more complex deployment is needed you can use the `feti` python application for automatic build and deployment of the web folder. The script uses Baserow as the source for the schedule data.
+For more complex deployment needs, use the `feti` Python application, which automates the building and deployment of the web folder, sourcing schedule data from Baserow.
 
+## Site Builder
 
-## Site builder
-
-This Python script takes the data from a Baserow instance as well as the config file and generates a web folder which is then deployed to the given location.
+This Python script generates a web folder from Baserow data and a configuration file, which can then be deployed to a specified location.
 
 ### Installation
 
@@ -24,28 +22,27 @@ source .venv/bin/activate
 pip3 install .
 ```
 
-### Baserow structure
+### Baserow Structure
 
-- Table `Bewerbung` (entry)
-    - Text Field `Name` (artist name)
-    - Single Select Field `Genre`
-    - Text Field `Titel`
-    - Duration Field `Dauer`
-    - Text Field `Beschreibung`
-- Table `Spielstätte` 
-    - Text Field `Name`
-- Table `Timetable` 
-    - Datetime Field `Wann`
-    - Link Field `Beitrag` (link to registration)
-    - Link Field `Spielstätte` (link to location)
-    - Bool Field `Permanent?` (is installation or exhibition over the whole festival)
+- **Table `Bewerbung`** (entry)
+  - `Name`: Text field for artist name
+  - `Genre`: Single select field
+  - `Titel`: Text field
+  - `Dauer`: Duration field
+  - `Beschreibung`: Text field
+- **Table `Spielstätte`**
+  - `Name`: Text field
+- **Table `Timetable`**
+  - `Wann`: Datetime field
+  - `Beitrag`: Link field (to registration)
+  - `Spielstätte`: Link field (to location)
+  - `Permanent?`: Boolean field (for installations or exhibitions lasting the entire festival)
 
-You can alter the names of the fields using the config file.
+Field names can be customized using the configuration file.
 
+### Config File
 
-### Config file
-
-The configuration happens in the files `config.toml` and `secrets.toml`. You find template for `secrets.toml` templates of them in the root of the repository. Create a new project folder with a copy of them and adapt them as needed.
+Configuration is done in `config.toml` and `secrets.toml`. Templates for these files are located in the root of the repository. Create a new project folder with copies of these templates and adjust them as needed.
 
 ```bash
 mkdir my-event
@@ -53,10 +50,10 @@ cp config.tpl.toml my-event/config.toml
 cp secrets.tpl.toml my-event/secrets.toml
 ```
 
-You can alter some of the images (logos etc.) displayed. Just set the paths in the config file (if empty default image will be used). The paths are relative to the config file. Example:
+You can customize images (logos, etc.) by setting paths in the config file. If paths are left empty, default images will be used. Paths are relative to the config file. Example:
 
 ```toml
-event_name = "My Event – A festival"
+event_name = "My Event – A Festival"
 event_description = "It's like the best thing ever"
 logo = "logo.svg"
 favicon = "favicon.svg"
@@ -66,19 +63,17 @@ baserow_url = "https://my.baserow.com"
 [...]
 ```
 
-
-### Usage 
+### Usage
 
 ```bash
 feti -c my-event/config.toml -s my-event/secrets.toml -o /var/www/html
 ```
 
+## Live-Reload Server for Development
 
-## Live-reload server for development
-
-There is the possibility to run local webserver with live-reload to speed up the development. Usage:
+To speed up development, you can use a local web server with live-reload:
 
 ```bash
 pip3 install .[dev]
 feti serve /var/www/data
-``` 
+```
