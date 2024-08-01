@@ -89,7 +89,8 @@
                                             </p>
                                         </div>
                                         <div class="tags are-medium">
-                                            <span class="tag is-link" x-text="entry.genre"></span>
+                                            <span :class="['tag', ...get_genre_color(entry.genre)]"
+                                                x-text="entry.genre"></span>
                                         </div>
                                     </div>
                                     <div class="content" x-show="entry.description !== ''">
@@ -126,7 +127,7 @@
                                 </p>
                             </div>
                             <div class="tags are-medium">
-                                <span class="tag is-link" x-text="entry.genre"></span>
+                                <span :class="['tag', ...get_genre_color(entry.genre)]" x-text="entry.genre"></span>
                             </div>
                         </div>
                         <div class="content" x-show="entry.description !== ''">
@@ -142,5 +143,13 @@
     </section>
     <script src="assets/js/app.js"></script>
 </body>
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p>
+            <strong><a href="https://github.com/72nd/feti-ng">feti</a></strong>. Datenstand: <span
+                x-text="render_date_time(created_on)"></span>
+        </p>
+    </div>
+</footer>
 
 </html>

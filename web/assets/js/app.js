@@ -2,6 +2,8 @@ document.addEventListener("alpine:init", () => {
     Alpine.data("feti", () => ({
         event_name: null,
         event_description: null,
+        genre_color_class: null,
+        created_on: null,
         permanent: [],
         per_day: null,
         selected_date: null,
@@ -17,9 +19,10 @@ document.addEventListener("alpine:init", () => {
                 let rsp = await fetch("/schedule.json");
                 let data = await rsp.json();
                 this.event_name = data.event_name;
-                this.event_description = data.event_description;;
+                this.event_description = data.event_description;
+                this.genre_color_class = data.genre_color_class;
+                this.created_on = data.created_on;
                 this.permanent = data.permanent;
-                // Add expanded property.
                 this.per_day = data.per_day;
             } catch (err) {
                 console.error(`error fetching schedule: ${err}`)
@@ -64,9 +67,19 @@ document.addEventListener("alpine:init", () => {
             const minute = String(date.getMinutes()).padStart(2, "0");
             return `${hour}:${minute}`;
         },
+        render_date_time(date_str) {
+            return `${this.render_long_date(date_str)} ${this.render_time(date_str)}`;
+        },
         change_day(day) {
             this.selected_date = new Date(day);
             this.selected_date_raw = day;
+        },
+        get_genre_color(genre) {
+            if (this.genre_color_class.hasOwnProperty(genre)) {
+                let rsl = this.genre_color_class[genre].split(" ");
+                return rsl;
+            }
+            return ["is-link"];
         },
         lead(text, word_count) {
             if (word_count <= 0) return "";

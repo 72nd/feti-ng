@@ -6,6 +6,25 @@ from pydantic import BaseModel, Field
 from feti.baserow import Entry, Location, Timetable
 
 
+GENRE_COLOR = {
+    "Ausstellung": "is-link",
+    "Film": "is-danger",
+    "Installation": "is-info",
+    "Musik": "is-danger",
+    "Performance": "is-dark",
+    "Tanz": "is-link-light",
+    "Theater": "is-primary",
+    "Lesung": "is-success",
+    "Digital": "is-warning",
+    "Hybrid": "is-grey",
+    "Workshop": "is-success",
+    "Kindertheater": "is-primary",
+    "Poetry Slam": "is-success",
+    "DJ": "is-warning",
+    "Meta": "is-grey is-light",
+}
+
+
 class ScheduleEntry(BaseModel):
     is_permanent: bool
     starts_at: Optional[datetime] = None
@@ -84,6 +103,8 @@ class ScheduleEntry(BaseModel):
 class Schedule(BaseModel):
     event_name: str
     event_description: str
+    genre_color_class: dict[str, str] = {}
+    created_on: datetime
     permanent: list[ScheduleEntry] = []
     per_day: dict[date, list[ScheduleEntry]] = {}
 
@@ -105,7 +126,9 @@ class Schedule(BaseModel):
 
         rsl = cls(
             event_name=event_name,
-            event_description=event_description
+            event_description=event_description,
+            genre_color_class=GENRE_COLOR,
+            created_on=datetime.now(),
         )
 
         for tt_entry in timetable:

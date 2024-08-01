@@ -2,7 +2,9 @@
 config.toml
 secrets.toml
 
+# Stuff
 .DS_STORE
+*.afpub~lock~
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
