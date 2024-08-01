@@ -1,5 +1,6 @@
 document.addEventListener("alpine:init", () => {
     Alpine.data("feti", () => ({
+        menu_visible: false,
         event_name: null,
         permanent: [],
         per_day: null,

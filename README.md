@@ -7,12 +7,12 @@ The python script is used to generate a `schedule.json` from our Baserow instanc
 
 ## Usage
 
-Use your favorite HTTP-server to serve the content of the `web` directory. Done.
+Use your favorite HTTP-server to serve the content of the `web` directory. Done. If a more complex deployment is needed you can use the `feti` python application for automatic build and deployment of the web folder
 
 
-## Generate the schedule
+## Site builder
 
-This Python script takes the data from a Baserow instance and generates a `schedule.json`. Please note that you have to manually edit some fields in the JSON (like for the event name). This fields start with »TODO«.
+This Python script takes the data from a Baserow instance as well as the config file and generates a web folder which is then deployed to the given location.
 
 ### Installation
 
@@ -55,7 +55,7 @@ cp secrets.tpl.toml secrets.toml
 ### Usage 
 
 ```bash
-feti -c config.toml -s secrets.toml -o schedule.json
+feti -c config.toml -s secrets.toml -o /var/www/html
 ```
 
 

@@ -15,6 +15,11 @@ __secrets: Optional["Secrets"] = None
 
 
 class Config(BaseModel):
+    event_name: str
+    event_description: str
+    logo: str
+    favicon: str
+    open_graph_image: str
     baserow_url: str
     entry_table_id: int
     entry_name_field: str

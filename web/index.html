@@ -20,15 +20,39 @@
 </head>
 
 <body>
-    <nav class="navbar is-link" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-link" x-data="{is_open: false}" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
             <a class="navbar-item is-size-5" href="">
                 <img src="assets/img/logo.svg" width="75" alt="" aria-hidden="true">
             </a>
-            <a class="navbar-item" href="#schedule">Programmpunkte</a>
-            <a class="navbar-item" href="#permanent">Durchgehend</a>
+            <div :class="['navbar-burger', is_open ? 'is-active' : '']" role="button" data-target="navbar"
+                @click="is_open= !is_open">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </div>
         </div>
-
+        <div id="navbar" :class="['navbar-menu', is_open ? 'is-active' : '']">
+            <div class="navbar-start">
+                <a class="navbar-item" href="#schedule">
+                    <span class="icon-text">
+                        <!-- <span class="icon">
+                            <i class="fas fa-clock"></i>
+                        </span> -->
+                        <span>Programmpunkte</span>
+                    </span>
+                </a>
+                <a class="navbar-item" href="#permanent">
+                    <span class="icon-text">
+                        <!-- <span class="icon">
+                            <i class="fas fa-paintbrush"></i>
+                        </span> -->
+                        <span>Durchgehend</span>
+                    </span>
+                </a>
+            </div>
+        </div>
     </nav>
     <section class="section">
         <div class="container">

@@ -1,42 +1,27 @@
 import argparse
 import asyncio
 from pathlib import Path
-from typing import Optional
 
 from baserow.client import GlobalClient
-from baserow.filter import AndFilter
-from livereload import Server
+try:
+    from livereload import Server
+except ImportError:
+    Server = None
 
-from feti.config import config, load_config, load_secrets, secrets
+from feti.config import load_config, load_secrets
+from feti.deploy import Deploy
 
 
-async def generate(
+async def deploy(
     config_path: str,
     secrets_path: str,
-    output: str,
-    event_name: Optional[str],
+    output_path: str,
 ):
-    """
-    Generate the schedule.json based on Baserow data.
-    """
+    """Build and deploy the 'static' web content."""
     load_config(config_path)
     load_secrets(secrets_path)
-    GlobalClient.configure(
-        config().baserow_url,
-        token=secrets().baserow_token,
-    )
-    from feti.baserow import Entry, Location, Timetable
-    from feti.schedule import Schedule
-    schedule = Schedule.from_baserow(
-        await Entry.query(size=-1),
-        await Location.query(size=-1),
-        await Timetable.query(size=-1),
-        "Event Name" if event_name is not None else "TODO <Event Name>",
-    )
-    schedule.sort_schedule()
-    with open(output, "w") as f:
-        f.write(schedule.model_dump_json())
-    await GlobalClient().close()
+    deploy = Deploy(Path(output_path))
+    await deploy.run()
 
 
 def serve():
@@ -47,6 +32,10 @@ def serve():
     root_path = this_files_path.parents[2]
     web_folder = root_path / "web"
 
+    if Server is None:
+        print(
+            "additional dependencies needed install with pip3 install feti[dev]")
+        return
     server = Server()
     server.watch(web_folder)
     server.serve(root=web_folder)
@@ -54,7 +43,7 @@ def serve():
 
 def main():
     parser = argparse.ArgumentParser(
-        description="takes data from a Baserow instance and generates a schedule.json"
+        description="takes data from a Baserow instance and deploys the web folder"
     )
     parser.add_argument(
         "-c",
@@ -70,10 +59,6 @@ def main():
         "-o",
         "--output",
         help="Output file or directory.",
-    )
-    parser.add_argument(
-        "--event-name",
-        help="Optional name of the event",
     )
 
     subparsers = parser.add_subparsers(
@@ -91,11 +76,10 @@ def main():
     if args.command == "serve":
         args.func()
     elif args.config and args.secrets and args.output:
-        asyncio.run(generate(
+        asyncio.run(deploy(
             args.config,
             args.secrets,
             args.output,
-            args.event_name,
         ))
     else:
         parser.print_help()
