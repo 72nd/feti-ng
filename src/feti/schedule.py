@@ -140,9 +140,10 @@ class Schedule(BaseModel):
                 continue
             else:
                 if tmp.starts_at is None:
-                    raise ValueError(
-                        f"{tt_entry.debug_str()} has no start datetime set but is not permanent"  # noqa
+                    print(
+                        f"WARN {tt_entry.debug_str()} has no start datetime set but is not permanent"  # noqa
                     )
+                    continue
                 day = tmp.starts_at.date()
                 if day not in rsl.per_day:
                     rsl.per_day[day] = []
