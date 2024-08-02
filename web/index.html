@@ -77,7 +77,7 @@
                                 <div class="card-content">
                                     <div class="media">
                                         <div class="media-content">
-                                            <p class="title is-4">
+                                            <p class="title is-5">
                                                 <span x-text="entry.artist_name"></span>
                                                 <template x-if="entry.title !== null && entry.title !== 'n.n.'">
                                                     <span>– <em><span x-text="entry.title"></span></em></span>
@@ -91,13 +91,16 @@
                                         <div class="tags are-medium">
                                             <span :class="['tag', ...get_genre_color(entry.genre)]"
                                                 x-text="entry.genre"></span>
+                                            <!-- <span class="icon">
+                                                <i class="fas fa-home">►</i>
+                                            </span> -->
                                         </div>
                                     </div>
                                     <div class="content" x-show="entry.description !== ''">
-                                        <span x-text="lead(entry.description, 50)"></span><span
-                                            x-show="entry.description.split(' ').length > 50 && !entry.is_expanded">…</span>
+                                        <span x-text="lead(entry.description, 25)"></span><span
+                                            x-show="entry.description.split(' ').length > 25 && !entry.is_expanded">…</span>
                                         <span x-show="entry.is_expanded" x-transition
-                                            x-text="after_lead(entry.description, 50)"></span>
+                                            x-text="after_lead(entry.description, 25)"></span>
                                     </div>
                                 </div>
                             </div>
@@ -116,7 +119,7 @@
                     <div class="card-content">
                         <div class="media">
                             <div class="media-content">
-                                <p class="title is-4">
+                                <p class="title is-5">
                                     <span x-text="entry.artist_name"></span>
                                     <template x-if="entry.title !== null && entry.title !== 'n.n.'">
                                         <span>– <em><span x-text="entry.title"></span></em></span>
@@ -131,10 +134,10 @@
                             </div>
                         </div>
                         <div class="content" x-show="entry.description !== ''">
-                            <span x-text="lead(entry.description, 50)"></span><span
-                                x-show="entry.description.split(' ').length > 50 && !entry.is_expanded">…</span>
+                            <span x-text="lead(entry.description, 25)"></span><span
+                                x-show="entry.description.split(' ').length > 25 && !entry.is_expanded">…</span>
                             <span x-show="entry.is_expanded" x-transition
-                                x-text="after_lead(entry.description, 50)"></span>
+                                x-text="after_lead(entry.description, 25)"></span>
                         </div>
                     </div>
                 </div>
