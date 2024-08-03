@@ -9,6 +9,7 @@
     <link rel="icon" type="image/svg" href="assets/img/favicon.svg">
 
     <link href="assets/css/bulma.min.css" rel="stylesheet" />
+    <link href="assets/css/leaflet.css" rel="stylesheet" />
 
     <meta property="og:title" content="Das Programm" />
     <meta property="og:Description" content="Die Programm-App" />
@@ -37,18 +38,17 @@
             <div class="navbar-start">
                 <a class="navbar-item" href="#schedule">
                     <span class="icon-text">
-                        <!-- <span class="icon">
-                            <i class="fas fa-clock"></i>
-                        </span> -->
                         <span>Programmpunkte</span>
                     </span>
                 </a>
                 <a class="navbar-item" href="#permanent">
                     <span class="icon-text">
-                        <!-- <span class="icon">
-                            <i class="fas fa-paintbrush"></i>
-                        </span> -->
                         <span>Durchgehend</span>
+                    </span>
+                </a>
+                <a class="navbar-item" href="#map">
+                    <span class="icon-text">
+                        <span>Geländeplan</span>
                     </span>
                 </a>
             </div>
@@ -58,6 +58,7 @@
         <div class="container">
             <h3 class="title is-3" id="schedule">Programmpunkte</h3>
             <p class="paragrpah" x-text="event_description"></p>
+            <p class="paragrpah">Jetzt neu mit <a href="#map">Geländeplan</a>!</p>
             <div class="tabs is-centered is-medium">
                 <ul>
                     <template x-for="(dt_str, day) in date_tabs_data()" :key="day">
@@ -142,6 +143,13 @@
                     </div>
                 </div>
             </template>
+        </div>
+    </section>
+    <section class="section" x-show="map !== null && map.enabled">
+        <div class="container">
+            <h3 class="title is-3" id="map">Geländeplan</h3>
+            <button class="button is-primary" @click="load_map()" x-show="!map_loaded">Karte laden</button>
+            <div id="map-container" style="height: 600px; width: 100%"></div>
         </div>
     </section>
     <script src="assets/js/app.js"></script>

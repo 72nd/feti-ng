@@ -4,6 +4,7 @@ from typing import Optional
 from pydantic import BaseModel
 
 from feti.baserow import Entry, Location, Timetable
+from feti.config import config
 
 
 GENRE_COLOR = {
@@ -100,10 +101,31 @@ class ScheduleEntry(BaseModel):
         return locations[location_id]
 
 
+class Map(BaseModel):
+    enabled: bool
+    center_y: int
+    center_x: int
+    zoom: float
+    upper_bound_y: int
+    upper_bound_x: int
+
+    @classmethod
+    def from_config(cls):
+        return cls(
+            enabled=config().map_enabled,
+            center_y=config().map_center_y,
+            center_x=config().map_center_x,
+            zoom=config().map_zoom,
+            upper_bound_y=config().map_upper_bound_y,
+            upper_bound_x=config().map_upper_bound_x,
+        )
+
+
 class Schedule(BaseModel):
     event_name: str
     event_description: str
     genre_color_class: dict[str, str] = {}
+    map: Map
     created_on: datetime
     permanent: list[ScheduleEntry] = []
     per_day: dict[date, list[ScheduleEntry]] = {}
@@ -114,8 +136,6 @@ class Schedule(BaseModel):
         entries: list[Entry],
         locations: list[Location],
         timetable: list[Timetable],
-        event_name: str,
-        event_description: str,
     ):
         entry_dict = {
             item.row_id: item for item in entries if item.row_id is not None
@@ -125,10 +145,11 @@ class Schedule(BaseModel):
         }
 
         rsl = cls(
-            event_name=event_name,
-            event_description=event_description,
+            event_name=config().event_name,
+            event_description=config().event_description,
             genre_color_class=GENRE_COLOR,
             created_on=datetime.now(),
+            map=Map.from_config(),
         )
 
         for tt_entry in timetable:

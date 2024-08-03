@@ -6,6 +6,8 @@ document.addEventListener("alpine:init", () => {
         created_on: null,
         permanent: [],
         per_day: null,
+        map: null,
+        map_loaded: false,
         selected_date: null,
         selected_date_raw: null,
         page_title() {
@@ -24,6 +26,7 @@ document.addEventListener("alpine:init", () => {
                 this.created_on = data.created_on;
                 this.permanent = data.permanent;
                 this.per_day = data.per_day;
+                this.map = data.map;
             } catch (err) {
                 console.error(`error fetching schedule: ${err}`)
             }
@@ -98,6 +101,33 @@ document.addEventListener("alpine:init", () => {
             } else {
                 return words.slice(word_count).join(" ");
             }
-        }
+        },
+        init_map() {
+            let image_bounds = [[0, 0], [this.map.upper_bound_y, this.map.upper_bound_x]];
+            let map = L.map("map-container", {
+                center: [this.map.center_y, this.map.center_x],
+                zoom: this.map.zoom,
+                crs: L.CRS.Simple,
+                maxBounds: image_bounds,
+            });
+            L.imageOverlay(
+                "assets/img/map.png",
+                image_bounds,
+            ).addTo(map);
+            this.map_loaded = true;
+        },
+        load_map() {
+            if (window.L) {
+                this.init_map();
+                return
+            }
+            let script = document.createElement("script");
+            script.src = "assets/js/leaflet.js";
+            script.async = true;
+            script.onload = () => {
+                this.init_map();
+            }
+            document.body.appendChild(script);
+        },
     }));
 })

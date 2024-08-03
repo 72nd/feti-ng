@@ -10,6 +10,7 @@ from feti.config import config, secrets
 FAVICON_PATH = Path("assets/img/favicon.svg")
 LOGO_PATH = Path("assets/img/logo.svg")
 OG_IMAGE_PATH = Path("assets/img/open_graph.png")
+MAP_PATH = Path("assets/img/map.png")
 
 
 class Deploy:
@@ -44,6 +45,11 @@ class Deploy:
             self.path / OG_IMAGE_PATH,
             "og_image",
         )
+        self.replace_file_from_config(
+            config().map_source,
+            self.path / MAP_PATH,
+            "map",
+        )
 
     def replace_file_from_config(self, config_value: str, destination: Path, name: str):
         if config_value == "":
@@ -65,8 +71,6 @@ class Deploy:
             await Entry.query(size=-1),
             await Location.query(size=-1),
             await Timetable.query(size=-1),
-            config().event_name,
-            config().event_description,
         )
         schedule.sort_schedule()
         with open(self.path / "schedule.json", "w") as f:

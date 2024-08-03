@@ -19,6 +19,13 @@ class Config(BaseModel):
     event_description: str
     logo: str
     favicon: str
+    map_enabled: bool
+    map_source: str
+    map_center_y: int
+    map_center_x: int
+    map_zoom: float
+    map_upper_bound_y: int
+    map_upper_bound_x: int
     open_graph_image: str
     baserow_url: str
     entry_table_id: int

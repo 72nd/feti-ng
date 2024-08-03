@@ -18,6 +18,14 @@
         "DJ": "is-warning",
         "Meta": "is-grey is-light"
     },
+    "map": {
+        "enabled": true,
+        "center_y": 0,
+        "center_x": 0,
+        "zoom": 1,
+        "upper_bound_y": 300,
+        "upper_bound_x": 260
+    },
     "created_on": "2024-08-01T13:51:31.801058",
     "permanent": [
         {
