@@ -149,7 +149,7 @@
         <div class="container">
             <h3 class="title is-3" id="map">Geländeplan</h3>
             <button class="button is-primary" @click="load_map()" x-show="!map_loaded">Karte laden</button>
-            <div id="map-container" style="height: 600px; width: 100%"></div>
+            <div id="map-container" x-show="map_loaded" style="height: 600px; width: 100%"></div>
         </div>
     </section>
     <script src="assets/js/app.js"></script>
