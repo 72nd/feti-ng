@@ -3,7 +3,7 @@ config.toml
 secrets.toml
 
 # Node
-node_modules
+misc/build-icons/node_modules
 misc/build-icons/package*.json
 
 # Stuff

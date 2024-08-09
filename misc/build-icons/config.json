@@ -9,6 +9,11 @@
     "fontFile": "material-icons",
     "dest": "../../web/assets/font",
     "icons": [
-        "menu"
+        "calendar",
+        "hours-24",
+        "map",
+        "menu",
+        "tune",
+        "view-day"
     ]
 }
