@@ -1,4 +1,6 @@
 document.addEventListener("alpine:init", () => {
+    var elements = document.querySelectorAll(".sidenav");
+    M.Sidenav.init(elements, {});
     Alpine.data("feti", () => ({
         event_name: null,
         event_description: null,

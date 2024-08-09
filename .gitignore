@@ -2,6 +2,10 @@
 config.toml
 secrets.toml
 
+# Node
+node_modules
+misc/build-icons/package*.json
+
 # Stuff
 .DS_STORE
 *.afpub~lock~

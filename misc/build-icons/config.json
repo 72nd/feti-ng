@@ -1,0 +1,14 @@
+{
+    "formats": [
+        "ttf",
+        "svg",
+        "woff",
+        "woff2"
+    ],
+    "fontName": "Material Icons",
+    "fontFile": "material-icons",
+    "dest": "../../web/assets/font",
+    "icons": [
+        "menu"
+    ]
+}

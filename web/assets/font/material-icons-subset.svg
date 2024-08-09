@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <font id="Material Icons" horiz-adv-x="512">
+    <font-face font-family="Material Icons"
+      units-per-em="512" ascent="448"
+      descent="64" />
+    <missing-glyph horiz-adv-x="0" />
+    <glyph glyph-name="menu"
+      unicode="&#xEA01;"
+      horiz-adv-x="512" d="M64 320H448V277.3333333333334H64V320M64 213.3333333333334H448V170.6666666666667H64V213.3333333333334M64 106.6666666666667H448V64H64V106.6666666666667z" />
+    <glyph glyph-name="menu-1"
+      unicode="&#x6D;&#x65;&#x6E;&#x75;"
+      horiz-adv-x="512" d="M64 320H448V277.3333333333334H64V320M64 213.3333333333334H448V170.6666666666667H64V213.3333333333334M64 106.6666666666667H448V64H64V106.6666666666667z" />
+  </font>
+</defs>
+</svg>

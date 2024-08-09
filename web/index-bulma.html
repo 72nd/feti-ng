@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="de" x-data="feti" x-init="fetch_schedule()">
+
+<head>
+    <meta charset="utf-8" />
+    <title x-text="page_title()"></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/svg" href="assets/img/favicon.svg">
+
+    <link href="assets/css/bulma.min.css" rel="stylesheet" />
+    <link href="assets/css/leaflet.css" rel="stylesheet" />
+
+    <meta property="og:title" content="Das Programm" />
+    <meta property="og:Description" content="Die Programm-App" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://timetable.1-2-wir.org" />
+    <meta property="og:image" content="/static/img/open_graph.png" />
+
+    <script defer src="assets/js/alpinejs.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar is-link" x-data="{is_open: false}" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item is-size-5" aria-hidden="true">
+                <img src="assets/img/logo.svg" width="75" alt="" aria-hidden="true">
+            </a>
+            <div :class="['navbar-burger', is_open ? 'is-active' : '']" role="button" data-target="navbar"
+                @click="is_open= !is_open" aria-name="open main menu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </div>
+        </div>
+        <div id="navbar" :class="['navbar-menu', is_open ? 'is-active' : '']">
+            <div class="navbar-start">
+                <a class="navbar-item" href="#schedule">
+                    <span class="icon-text">
+                        <span>Programmpunkte</span>
+                    </span>
+                </a>
+                <a class="navbar-item" href="#permanent">
+                    <span class="icon-text">
+                        <span>Durchgehend</span>
+                    </span>
+                </a>
+                <a class="navbar-item" href="#map">
+                    <span class="icon-text">
+                        <span>Geländeplan</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </nav>
+    <section class="section">
+        <div class="container">
+            <h3 class="title is-3" id="schedule">Programmpunkte</h3>
+            <p class="paragrpah" x-text="event_description"></p>
+            <p class="paragrpah">Jetzt neu mit <a href="#map">Geländeplan</a>!</p>
+            <div class="tabs is-centered is-medium">
+                <ul>
+                    <template x-for="(dt_str, day) in date_tabs_data()" :key="day">
+                        <li :class="[day == selected_date_raw ? 'is-active' : '']" @click="change_day(day)">
+                            <a x-text="dt_str"></a>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+            <template x-for="(entries, date) in per_day" :key="date">
+                <template x-if="date === selected_date_raw">
+                    <div>
+                        <h4 class="title is-4" :id="date" x-text="render_long_date(date)"></h4>
+                        <template x-for="entry in entries">
+                            <div class="card mt-4" @click="entry.is_expanded = !entry.is_expanded"
+                                @keydown="event.keyCode === 13 && entry_clicked(entry)" tabindex="0">
+                                <div class="card-content">
+                                    <div class="media">
+                                        <div class="media-content">
+                                            <p class="title is-5">
+                                                <span x-text="entry.artist_name"></span>
+                                                <template x-if="entry.title !== null && entry.title !== 'n.n.'">
+                                                    <span>– <em><span x-text="entry.title"></span></em></span>
+                                                </template>
+                                            </p>
+                                            <p class="subtitle is-6">
+                                                <span x-text="render_time(entry.starts_at)"></span>,
+                                                <span x-text="entry.location"></span>
+                                            </p>
+                                        </div>
+                                        <div class="tags are-medium">
+                                            <span :class="['tag', ...get_genre_color(entry.genre)]"
+                                                x-text="entry.genre"></span>
+                                            <!-- <span class="icon">
+                                                <i class="fas fa-home">►</i>
+                                            </span> -->
+                                        </div>
+                                    </div>
+                                    <div class="content" x-show="entry.description !== ''">
+                                        <span x-text="lead(entry.description, 25)"></span><span
+                                            x-show="entry.description.split(' ').length > 25 && !entry.is_expanded">…</span>
+                                        <span x-show="entry.is_expanded" x-transition
+                                            x-text="after_lead(entry.description, 25)"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+            </template>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <h3 class="title is-3" id="permanent">Durchgehend</h3>
+            <template x-for="entry in permanent">
+                <div class="card mt-4" @click="entry.is_expanded = !entry.is_expanded"
+                    @keydown="event.keyCode === 13 && entry_clicked(entry)" tabindex="0">
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-content">
+                                <p class="title is-5">
+                                    <span x-text="entry.artist_name"></span>
+                                    <template x-if="entry.title !== null && entry.title !== 'n.n.'">
+                                        <span>– <em><span x-text="entry.title"></span></em></span>
+                                    </template>
+                                </p>
+                                <p class="subtitle is-6">
+                                    <span x-text="entry.location"></span>
+                                </p>
+                            </div>
+                            <div class="tags are-medium">
+                                <span :class="['tag', ...get_genre_color(entry.genre)]" x-text="entry.genre"></span>
+                            </div>
+                        </div>
+                        <div class="content" x-show="entry.description !== ''">
+                            <span x-text="lead(entry.description, 25)"></span><span
+                                x-show="entry.description.split(' ').length > 25 && !entry.is_expanded">…</span>
+                            <span x-show="entry.is_expanded" x-transition
+                                x-text="after_lead(entry.description, 25)"></span>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </section>
+    <section class="section" x-show="map !== null && map.enabled">
+        <div class="container">
+            <h3 class="title is-3" id="map">Geländeplan</h3>
+            <button class="button is-primary" @click="load_map()" x-show="!map_loaded">Karte laden</button>
+            <div id="map-container" x-show="map_loaded" style="height: 600px; width: 100%"></div>
+        </div>
+    </section>
+    <script src="assets/js/app.js"></script>
+</body>
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p>
+            <strong><a href="https://github.com/72nd/feti-ng">feti</a></strong>. Datenstand: <span
+                x-text="render_date_time(created_on)"></span>
+        </p>
+    </div>
+</footer>
+
+</html>
