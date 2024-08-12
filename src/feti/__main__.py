@@ -23,6 +23,10 @@ async def deploy(
     await deploy.run()
 
 
+def build(watch: bool):
+    """Builds the assets."""
+
+
 def serve(dir: str):
     """
     Serve page with livereload for development purposes.
@@ -65,6 +69,18 @@ def main():
         dest="command",
         help="Subcommand to run",
     )
+
+    parser_build = subparsers.add_parser(
+        "build",
+        help="builds web assets",
+    )
+    parser_build.add_argument(
+        "--watch",
+        action="store_true",
+        help="enable watch mode to rebuild on file changes",
+    )
+    parser_build.set_defaults(func=build)
+
     parser_serve = subparsers.add_parser(
         "serve",
         help="starts a local webserver with live-reload for development",
@@ -77,7 +93,9 @@ def main():
 
     args = parser.parse_args()
 
-    if args.command == "serve":
+    if args.command == "build":
+        args.func(args.watch)
+    elif args.command == "serve":
         args.func(args.WEB_DIR)
     elif args.config and args.secrets and args.output:
         asyncio.run(deploy(

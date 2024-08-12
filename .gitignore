@@ -1,6 +1,12 @@
+.vscode/
+
 # Custom config files
 config.toml
 secrets.toml
+
+# Misc dev stuff
+fuef-*/
+test/
 
 # Stuff
 .DS_STORE
