@@ -7,6 +7,7 @@ try:
 except ImportError:
     Server = None
 
+from feti.build import BuildAssets
 from feti.config import load_config, load_secrets
 from feti.deploy import Deploy
 
@@ -23,8 +24,10 @@ async def deploy(
     await deploy.run()
 
 
-def build(watch: bool):
+def build_cmd(watch: bool):
     """Builds the assets."""
+    build = BuildAssets(watch)
+    build.run()
 
 
 def serve(dir: str):
@@ -79,7 +82,7 @@ def main():
         action="store_true",
         help="enable watch mode to rebuild on file changes",
     )
-    parser_build.set_defaults(func=build)
+    parser_build.set_defaults(func=build_cmd)
 
     parser_serve = subparsers.add_parser(
         "serve",

@@ -26,7 +26,7 @@
 @forward "components/card";
 // @forward "components/modal";
 @forward "components/tabs";
-// @forward "elements/button";
+@forward "elements/button";
 @forward "elements/icon";
 @forward "elements/content";
 @forward "elements/notification";
@@ -38,6 +38,9 @@
 @forward "layout/section";
 @forward "helpers/spacing.scss";
 @forward "helpers/typography.scss";
+
+// Custom elements
+@forward "event.scss";
 
 
 // Import the themes so that all CSS variables have a value

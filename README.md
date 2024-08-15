@@ -77,3 +77,12 @@ To speed up development, you can use a local web server with live-reload:
 pip3 install .[dev]
 feti serve /var/www/data
 ```
+
+## Build assets during development
+
+Assets (currently only CSS) can be built from their respective sources using `feti build`. This command is only needed for the development process and not for building a timetable
+
+## Acknowledgement
+
+- [Bulma CSS Framework](https://bulma.io/)
+- [Bulma list extension](https://github.com/bluefantail/bulma-list)
