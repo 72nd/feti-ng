@@ -31,7 +31,6 @@ $genre-colors: (
     // Background color class
     .genre-color-#{$name} {
         background-color: #{$bg-color};
-        color: #{$fg-color};
     }
 
     // Text color class
