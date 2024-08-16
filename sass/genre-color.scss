@@ -1,0 +1,41 @@
+$genre-colors: (
+    ("brown-1", #c44601, #ffffff),
+    ("orange-1", #f57600, #000000),
+    ("orange-2", #f8c166, #000000),
+    ("turquoise-1", #8babf1, #000000),
+    ("turquoise-2", #8dd2dd, #000000),
+    ("teal-1", #0073e6, #ffffff),
+    ("teal-2", #054fb9, #ffffff),
+    ("teal-3", #009eb0, #000000),
+    ("green-1", #5ba300, #000000),
+    ("green-2", #029356, #000000),
+    ("green-3", #9dd15e, #000000),
+    ("purple-1", #e6308a, #000000),
+    ("purple-2", #e6308a, #ffffff),
+    ("purple-3", #e328d7, #000000),
+    ("purple-4", #a5139f, #ffffff),
+    ("tan-1", #90d8b2, #000000),
+    ("violet-1", #9b8bf4, #000000),
+    ("salmon-1", #fcc9b5, #000000),
+    ("pink-1", #f8afa4, #000000),
+    ("yellow-1", #f5ee54, #000000),
+    ("beige-1", #fbf8bf, #000000),
+    ("grey-1", #cdcfd3, #000000)
+);
+
+@each $color in $genre-colors {
+    $name: nth($color, 1); // name
+    $bg-color: nth($color, 2); // background color
+    $fg-color: nth($color, 3); // foreground color
+
+    // Background color class
+    .genre-color-#{$name} {
+        background-color: #{$bg-color};
+        color: #{$fg-color};
+    }
+
+    // Text color class
+    .genre-color-#{$name}-text {
+        color: #{$fg-color};
+    }
+}

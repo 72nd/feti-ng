@@ -1,6 +1,8 @@
 /*
- * Based on the Bulma-list by bluefantail. See https://github.com/bluefantail/bulma-list
+ * Based on the Bulma-events by bluefantail. for more information
+ * see https://github.com/bluefantail/bulma-list
  */
+@forward "genre-color.scss";
 @use "utilities/mixins" as mixins;
 
 @mixin has-mouse-pointer {
@@ -18,6 +20,7 @@
     --be-list-item-padding: 0.75em;
     --be-list-item-title-color: var(--bulma-text-strong);
     --be-list-item-title-weight: var(--bulma-weight-semibold);
+    --be-list-item-subtitle-weight: var(--bulma-weight-medium);
 
     $list-color: var(--be-list-color) !default;
     $list-item-description-color: var(--be-list-item-description-color) !default;
@@ -27,6 +30,7 @@
     $list-item-padding: var(--be-list-item-padding) !default;
     $list-item-title-color: var(--be-list-item-title-color) !default;
     $list-item-title-weight: var(--be-list-item-title-weight) !default;
+    $list-item-subtitle-weight: var(--be-list-item-subtitle-weight) !default;
 
     color: $list-color;
     display: flex;
@@ -114,6 +118,10 @@
         font-weight: $list-item-title-weight;
     }
 
+    .list-item-subtitle {
+        font-weight: $list-item-subtitle-weight;
+    }
+
     .list-item-description {
         color: $list-item-description-color;
     }
@@ -139,6 +147,30 @@
                 position: absolute;
                 inset-inline-end: 0;
             }
+        }
+    }
+
+    .list-item-time-box {
+        width: 64px;
+        height: 64px;
+        border-radius: 7px;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        time {
+            z-index: 1;
+            position: relative;
+        }
+
+        icon-genre {
+            position: absolute;
+            font-size: 70x;
+            opacity: 0.12;
+            z-index: 0;
         }
     }
 }
