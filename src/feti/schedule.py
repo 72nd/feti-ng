@@ -8,21 +8,21 @@ from feti.config import config
 
 
 GENRE_COLOR = {
-    "Ausstellung": "is-link",
-    "Film": "is-danger",
-    "Installation": "is-info",
-    "Musik": "is-danger",
-    "Performance": "is-dark",
-    "Tanz": "is-link-light",
-    "Theater": "is-primary",
-    "Lesung": "is-success",
-    "Digital": "is-warning",
-    "Hybrid": "is-grey",
-    "Workshop": "is-success",
-    "Kindertheater": "is-primary",
-    "Poetry Slam": "is-success",
-    "DJ": "is-warning",
-    "Meta": "is-grey is-light",
+    "Ausstellung": ("genre-color-orange", "wall_art"),
+    "Film": ("genre-color-chartreuse", "theaters"),
+    "Installation": ("genre-color-yellow", "highlight"),
+    "Musik": ("genre-color-vermilion", "music_note"),
+    "Performance": ("genre-color-magenta", "stars"),
+    "Tanz": ("genre-color-magenta", "directions_walk"),
+    "Theater": ("genre-color-teal", "theater_comedy"),
+    "Lesung": ("genre-color-blue", "book_4"),
+    "Digital": ("genre-color-red", "wifi"),
+    "Hybrid": ("genre-color-orange-light", "transition_fade"),
+    "Workshop": ("genre-color-green", "handyman"),
+    "Kindertheater": ("genre-color-purple", "child_care"),
+    "Poetry Slam": ("genre-color-blue-light", "mic_external_on"),
+    "DJ": ("genre-color-amber", "nightlife"),
+    "Meta": ("genre-color-vermilion-light", "eco"),
 }
 
 
@@ -124,7 +124,7 @@ class Map(BaseModel):
 class Schedule(BaseModel):
     event_name: str
     event_description: str
-    genre_color_class: dict[str, str] = {}
+    genre_color_class: dict[str, tuple[str, str]] = {}
     map: Map
     created_on: datetime
     permanent: list[ScheduleEntry] = []

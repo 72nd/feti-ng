@@ -63,7 +63,7 @@
     }
 
     .list-item {
-        align-items: center;
+        align-items: start;
         display: flex;
         position: relative;
         transition: background-color ease-out 0.125s;
@@ -97,7 +97,7 @@
         margin-inline-end: $list-item-image-margin;
 
         @include mixins.mobile {
-            padding-block: 0.5rem;
+            padding-block: 0.8rem;
             padding-inline: 0;
         }
     }
@@ -166,9 +166,9 @@
             position: relative;
         }
 
-        icon-genre {
+        .genre-icon {
             position: absolute;
-            font-size: 70x;
+            font-size: 100px;
             opacity: 0.12;
             z-index: 0;
         }

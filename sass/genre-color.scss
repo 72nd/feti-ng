@@ -1,26 +1,40 @@
 $genre-colors: (
-    ("brown-1", #c44601, #ffffff),
-    ("orange-1", #f57600, #000000),
-    ("orange-2", #f8c166, #000000),
-    ("turquoise-1", #8babf1, #000000),
-    ("turquoise-2", #8dd2dd, #000000),
-    ("teal-1", #0073e6, #ffffff),
-    ("teal-2", #054fb9, #ffffff),
-    ("teal-3", #009eb0, #000000),
-    ("green-1", #5ba300, #000000),
-    ("green-2", #029356, #000000),
-    ("green-3", #9dd15e, #000000),
-    ("purple-1", #e6308a, #000000),
-    ("purple-2", #e6308a, #ffffff),
-    ("purple-3", #e328d7, #000000),
-    ("purple-4", #a5139f, #ffffff),
-    ("tan-1", #90d8b2, #000000),
-    ("violet-1", #9b8bf4, #000000),
-    ("salmon-1", #fcc9b5, #000000),
-    ("pink-1", #f8afa4, #000000),
-    ("yellow-1", #f5ee54, #000000),
-    ("beige-1", #fbf8bf, #000000),
-    ("grey-1", #cdcfd3, #000000)
+    ("red-light", #d18686, #000000),
+    ("red", #B50801, #ffffff),
+    ("red-dark", #850304, #ffffff),
+    ("vermilion-light", #f5ad92, #000000),
+    ("vermilion", #EC7225, #000000),
+    ("vermilion-dark", #bc4311, #ffffff),
+    ("orange-light", #f0be97, #000000),
+    ("orange", #E3933C, #000000),
+    ("orange-dark", #b5601d, #ffffff),
+    ("amber-light", #f9dd9d, #000000),
+    ("amber", #F4C846, #000000),
+    ("amber-dark", #c68f25, #000000),
+    ("yellow-light", #f7efa1, #000000),
+    ("yellow", #F1E54C, #000000),
+    ("yellow-dark", #c4ab29, #000000),
+    ("chartreuse-light", #c0d59a, #000000),
+    ("chartreuse", #97BA44, #000000),
+    ("chartreuse-dark", #6c9024, #000000),
+    ("green-light", #87a18f, #000000),
+    ("green", #2B6440, #ffffff),
+    ("green-dark", #153f22, #ffffff),
+    ("teal-light", #93c6d8, #000000),
+    ("teal", #38A1BD, #000000),
+    ("teal-dark", #1e7892, #ffffff),
+    ("blue-light", #8a9bbc, #000000),
+    ("blue", #2E5A93, #ffffff),
+    ("blue-dark", #18366a, #ffffff),
+    ("violet-light", #9195bb, #000000),
+    ("violet", #464E94, #ffffff),
+    ("violet-dark", #252b6b, #ffffff),
+    ("purple-light", #a08db2, #000000),
+    ("purple", #663D86, #ffffff),
+    ("purple-dark", #382153, #ffffff),
+    ("magenta-light", #c688a7, #000000),
+    ("magenta", #A51B72, #ffffff),
+    ("magenta-dark", #770b4b, #ffffff),
 );
 
 @each $color in $genre-colors {
@@ -31,10 +45,11 @@ $genre-colors: (
     // Background color class
     .genre-color-#{$name} {
         background-color: #{$bg-color};
+        color: #{$fg-color};
     }
 
     // Text color class
-    .genre-color-#{$name}-text {
-        color: #{$fg-color};
-    }
+    // .genre-color-#{$name}-text {
+    //     color: #{$fg-color};
+    // }
 }

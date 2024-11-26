@@ -79,10 +79,17 @@ document.addEventListener("alpine:init", () => {
         },
         get_genre_color(genre) {
             if (this.genre_color_class.hasOwnProperty(genre)) {
-                let rsl = this.genre_color_class[genre].split(" ");
+                let rsl = this.genre_color_class[genre][0];
                 return rsl;
             }
-            return ["is-link"];
+            return ["genre-color-violet-dark"];
+        },
+        get_genre_icon(genre) {
+            if (this.genre_color_class.hasOwnProperty(genre)) {
+                let rsl = this.genre_color_class[genre][1];
+                return rsl;
+            }
+            return "";
         },
         lead(text, word_count) {
             if (word_count <= 0) return "";

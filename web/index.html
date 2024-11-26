@@ -69,9 +69,9 @@
             <div class="list-item">
                 <div class="list-item-image">
                     <figure class="image">
-                        <div class="list-item-time-box genre-color-brown-1">
-                            <time datetime="12:00" class="genre-color-brown-1-text">12:00</time>
-                            <time datetime="PT60M" class="genre-color-brown-1-text" style="font-size: small;">60
+                        <div class="list-item-time-box genre-color-vermilion">
+                            <time datetime="12:00" class="genre-color-vermilion-text">12:00</time>
+                            <time datetime="PT60M" class="genre-color-vermilion-text" style="font-size: small;">60
                                 Min</time>
                         </div>
                     </figure>
@@ -103,8 +103,21 @@
                 <template x-for="(entries, date) in per_day" :key="date">
                     <template x-if="date === selected_date_raw">
                         <template x-for="entry in entries">
-                            <div class="list">
+                            <div class="list has-visible-pointer-controls">
                                 <div class="list-item">
+                                    <div class="list-item-image">
+                                        <figure class="image">
+                                            <div :class="['list-item-time-box', get_genre_color(entry.genre)]">
+                                                <!-- <span class="material-icons genre-icon"
+                                                    x-text="get_genre_icon(entry.genre)"></span> -->
+                                                <time :datetime="entry.starts_at" class="genre-color-vermilion-text"
+                                                    x-text="render_time(entry.starts_at)"></time>
+                                                <time datetime="PT60M" class="genre-color-vermilion-text"
+                                                    style="font-size: small;">60
+                                                    Min</time>
+                                            </div>
+                                        </figure>
+                                    </div>
                                     <div class="list-item-content">
                                         <div class="list-item-title">
                                             <span x-text="entry.artist_name"></span>
@@ -112,12 +125,17 @@
                                                 <span>– <em><span x-text="entry.title"></span></em></span>
                                             </template>
                                         </div>
-                                        <div class="list-item-description" style="color: black;">
-                                            <span :class="['tag', ...get_genre_color(entry.genre)]"
-                                                x-text="entry.genre"></span>
-                                            <span class="pl-1" x-text="entry.location"></span>
+                                        <div class="list-item-subtitle" style="color: black;">
+                                            <span class="icon-text">
+                                                <span class="icon material-icons" x-text="get_genre_icon(entry.genre)">
+                                                </span>
+                                                <span x-text="entry.genre"></span> –
+                                            </span><span class="pl-1" x-text="entry.location"></span>
                                         </div>
-                                        <div class="list-item-description">List item description</div>
+                                        <div class="list-item-description">
+                                            <span x-text="lead(entry.description, 25)"></span><span
+                                                x-show="entry.description.split(' ').length > 25 && !entry.is_expanded">…</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
