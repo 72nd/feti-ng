@@ -1,242 +1,72 @@
-<!DOCTYPE html>
-<html lang="de" x-data="feti" x-init="fetch_schedule()" data-theme="light" class="has-navbar-fixed-top">
+<!doctype html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <title x-text="page_title()"></title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="icon" type="image/svg" href="assets/img/favicon.svg">
-
-    <link href="assets/css/bulma.min.css" rel="stylesheet" />
-    <link href="assets/css/leaflet.css" rel="stylesheet" />
-    <link href="assets/css/icons.css" rel="stylesheet" />
-
-    <meta property="og:title" content="Das Programm" />
-    <meta property="og:Description" content="Die Programm-App" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://timetable.1-2-wir.org" />
-    <meta property="og:image" content="/static/img/open_graph.png" />
-
-    <script defer src="assets/js/alpinejs.min.js"></script>
+    <title>Bootstrap demo</title>
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <nav class="navbar is-link is-fixed-top" x-data="{is_open: false}" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item is-size-5" href="">
-                <img src="assets/img/logo.svg" width="75" alt="" aria-hidden="true">
-            </a>
-            <div :class="['navbar-burger', is_open ? 'is-active' : '']" role="button" data-target="navbar"
-                @click="is_open= !is_open">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </div>
-        </div>
-        <div id="navbar" :class="['navbar-menu', is_open ? 'is-active' : '']">
-            <div class="navbar-start">
-                <a class="navbar-item" href="#schedule">
-                    <span class="icon-text">
-                        <span class="icon" aria-hidden="true">
-                            <i class="material-icons">event</i>
-                        </span>
-                        <span>Programmpunkte</span>
-                    </span>
-                </a>
-                <a class="navbar-item" href="#schedule">
-                    <span class="icon-text">
-                        <span class="icon" aria-hidden="true">
-                            <i class="material-icons">brush</i>
-                        </span>
-                        <span>Durchgehend</span>
-                    </span>
-                </a>
-                <a class="navbar-item" href="#schedule">
-                    <span class="icon-text">
-                        <span class="icon" aria-hidden="true">
-                            <i class="material-icons">map</i>
-                        </span>
-                        <span>Geländeplan</span>
-                    </span>
-                </a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Disabled</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
             </div>
         </div>
     </nav>
-    <section class="section">
-        <div class="list has-visible-pointer-controls">
-            <div class="list-item">
-                <div class="list-item-image">
-                    <figure class="image">
-                        <div class="list-item-time-box genre-color-vermilion">
-                            <time datetime="12:00" class="genre-color-vermilion-text">12:00</time>
-                            <time datetime="PT60M" class="genre-color-vermilion-text" style="font-size: small;">60
-                                Min</time>
-                        </div>
-                    </figure>
-                </div>
-                <div class="list-item-content">
-                    <div class="list-item-title">Martin Jost - Die Verewigung des Guten</div>
-                    <div class="list-item-subtitle">Theater - Theaterstall</div>
-                    <div class="list-item-description">In diesem Stück passiert ganz viel Spannendes...</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section">
-        <div class="container">
-            <h3 class="title is-3" id="schedule">Programmpunkte</h3>
-            <p class="paragraph" x-text="event_description"></p>
-            <p class="paragraph">Jetzt neu mit <a href="#map">Geländeplan</a>!</p>
 
-            <div class="content">
-                <div class="tabs is-centered is-medium">
-                    <ul>
-                        <template x-for="(dt_str, day) in date_tabs_data()" :key="day">
-                            <li :class="[day == selected_date_raw ? 'is-active' : '']" @click="change_day(day)">
-                                <a x-text="dt_str"></a>
-                            </li>
-                        </template>
-                    </ul>
-                </div>
-                <template x-for="(entries, date) in per_day" :key="date">
-                    <template x-if="date === selected_date_raw">
-                        <template x-for="entry in entries">
-                            <div class="list has-visible-pointer-controls">
-                                <div class="list-item">
-                                    <div class="list-item-image">
-                                        <figure class="image">
-                                            <div :class="['list-item-time-box', get_genre_color(entry.genre)]">
-                                                <!-- <span class="material-icons genre-icon"
-                                                    x-text="get_genre_icon(entry.genre)"></span> -->
-                                                <time :datetime="entry.starts_at" class="genre-color-vermilion-text"
-                                                    x-text="render_time(entry.starts_at)"></time>
-                                                <time datetime="PT60M" class="genre-color-vermilion-text"
-                                                    style="font-size: small;">60
-                                                    Min</time>
-                                            </div>
-                                        </figure>
-                                    </div>
-                                    <div class="list-item-content">
-                                        <div class="list-item-title">
-                                            <span x-text="entry.artist_name"></span>
-                                            <template x-if="entry.title !== null && entry.title !== 'n.n.'">
-                                                <span>– <em><span x-text="entry.title"></span></em></span>
-                                            </template>
-                                        </div>
-                                        <div class="list-item-subtitle" style="color: black;">
-                                            <span class="icon-text">
-                                                <span class="icon material-icons" x-text="get_genre_icon(entry.genre)">
-                                                </span>
-                                                <span x-text="entry.genre"></span> –
-                                            </span><span class="pl-1" x-text="entry.location"></span>
-                                        </div>
-                                        <div class="list-item-description">
-                                            <span x-text="lead(entry.description, 25)"></span><span
-                                                x-show="entry.description.split(' ').length > 25 && !entry.is_expanded">…</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </template>
+    <div class="container my-5">
+        <h1>Hello, world!</h1>
+        <div class="col-lg-8 px-0">
+            <p class="fs-5">You've successfully loaded up the Bootstrap starter example. It includes <a
+                    href="https://getbootstrap.com/">Bootstrap 5</a> via the <a
+                    href="https://www.jsdelivr.com/package/npm/bootstrap">jsDelivr CDN</a> and includes an additional
+                CSS and JS file for your own code.</p>
+            <p>Feel free to download or copy-and-paste any parts of this example.</p>
 
-                    </template>
-                </template>
+            <hr class="col-1 my-4">
 
-                <template x-for="(entries, date) in per_day" :key="date">
-                    <template x-if="date === selected_date_raw">
-                        <div>
-                            <h4 class="title is-4" :id="date" x-text="render_long_date(date)"></h4>
-                            <template x-for="entry in entries">
-                                <div class="card mt-4" @click="entry.is_expanded = !entry.is_expanded"
-                                    @keydown="event.keyCode === 13 && entry_clicked(entry)" tabindex="0">
-                                    <div class="card-content">
-                                        <div class="media">
-                                            <div class="media-content">
-                                                <p class="title is-5">
-                                                    <span x-text="entry.artist_name"></span>
-                                                    <template x-if="entry.title !== null && entry.title !== 'n.n.'">
-                                                        <span>– <em><span x-text="entry.title"></span></em></span>
-                                                    </template>
-                                                </p>
-                                                <p class="subtitle is-6">
-                                                    <span x-text="render_time(entry.starts_at)"></span>,
-                                                    <span x-text="entry.location"></span>
-                                                </p>
-                                            </div>
-                                            <div class="tags are-medium">
-                                                <span :class="['tag', ...get_genre_color(entry.genre)]"
-                                                    x-text="entry.genre"></span>
-                                                <!-- <span class="icon">
-                                                <i class="fas fa-home">►</i>
-                                            </span> -->
-                                            </div>
-                                        </div>
-                                        <div class="content" x-show="entry.description !== ''">
-                                            <span x-text="lead(entry.description, 25)"></span><span
-                                                x-show="entry.description.split(' ').length > 25 && !entry.is_expanded">…</span>
-                                            <span x-show="entry.is_expanded" x-transition
-                                                x-text="after_lead(entry.description, 25)"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </template>
-                        </div>
-                    </template>
-                </template>
-            </div>
-    </section>
-    <section class="section">
-        <div class="container">
-            <h3 class="title is-3" id="permanent">Durchgehend</h3>
-            <template x-for="entry in permanent">
-                <div class="card mt-4" @click="entry.is_expanded = !entry.is_expanded"
-                    @keydown="event.keyCode === 13 && entry_clicked(entry)" tabindex="0">
-                    <div class="card-content">
-                        <div class="media">
-                            <div class="media-content">
-                                <p class="title is-5">
-                                    <span x-text="entry.artist_name"></span>
-                                    <template x-if="entry.title !== null && entry.title !== 'n.n.'">
-                                        <span>– <em><span x-text="entry.title"></span></em></span>
-                                    </template>
-                                </p>
-                                <p class="subtitle is-6">
-                                    <span x-text="entry.location"></span>
-                                </p>
-                            </div>
-                            <div class="tags are-medium">
-                                <span :class="['tag', ...get_genre_color(entry.genre)]" x-text="entry.genre"></span>
-                            </div>
-                        </div>
-                        <div class="content" x-show="entry.description !== ''">
-                            <span x-text="lead(entry.description, 25)"></span><span
-                                x-show="entry.description.split(' ').length > 25 && !entry.is_expanded">…</span>
-                            <span x-show="entry.is_expanded" x-transition
-                                x-text="after_lead(entry.description, 25)"></span>
-                        </div>
-                    </div>
-                </div>
-            </template>
+            <a href="https://getbootstrap.com" class="btn btn-primary">Read the Bootstrap docs</a>
+            <a href="https://github.com/twbs/examples" class="btn btn-secondary">View on GitHub</a>
         </div>
-    </section>
-    <section class="section" x-show="map !== null && map.enabled">
-        <div class="container">
-            <h3 class="title is-3" id="map">Geländeplan</h3>
-            <button class="button is-primary" @click="load_map()" x-show="!map_loaded">Karte laden</button>
-            <div id="map-container" x-show="map_loaded" style="height: 600px; width: 100%"></div>
-        </div>
-    </section>
-    <script src="assets/js/app.js"></script>
-</body>
-<footer class="footer">
-    <div class="content has-text-centered">
-        <p>
-            <strong><a href="https://github.com/72nd/feti-ng">feti</a></strong>. Datenstand: <span
-                x-text="render_date_time(created_on)"></span>
-        </p>
     </div>
-</footer>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+</body>
 
 </html>

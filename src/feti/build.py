@@ -21,13 +21,14 @@ class BuildAssets:
 
     def __compile_sass(self):
         self.check_command("sass")
-        input_file = self.sass_dir / "style.scss"
-        output_file = self.assets_dir / "css/bulma.min.css"
+        input_file = self.sass_dir / "bootstrap.scss"
+        output_file = self.assets_dir / "css/bootstrap.min.css"
         cmd = [
             "sass",
             str(input_file),
             str(output_file),
             "--style=compressed",
+            "--quiet-deps",
         ]
         if self.watch:
             cmd.append("--watch")
