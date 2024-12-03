@@ -50,7 +50,7 @@ func (p Project) Create() error {
 	if err := p.createConfig(); err != nil {
 		return err
 	}
-	if err := ExpandEmbedFS(projectFiles, "prj", p.Path()); err != nil {
+	if err := os.CopyFS(p.Path(), projectFiles); err != nil {
 		return err
 	}
 	return p.createScheduleSource()

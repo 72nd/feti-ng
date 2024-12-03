@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"path/filepath"
 	"slices"
 	"strings"
 
@@ -47,10 +48,9 @@ func bundle() {
 
 func deploy() {
 	var args struct {
-		ConfigPath  string `cli:"#R, -c, --config, path to config file"`
-		OutputDir   string `cli:"#R, -o, --output, output directory"`
-		LiveServe   bool   `cli:"-s, --serve, serve result with live-rebuild for development"`
-		RebuildSass bool   `cli:"--sass, rebuild sass"`
+		ConfigPath string `cli:"#R, -c, --config, path to config file"`
+		OutputDir  string `cli:"#R, -o, --output, output directory"`
+		LiveServe  bool   `cli:"-s, --serve, serve result with live-rebuild for development"`
 	}
 	mcli.Parse(&args)
 	if args.LiveServe {
@@ -67,16 +67,27 @@ func deploy() {
 	}
 
 	cfg, err := ConfigFromFile(args.ConfigPath)
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
-	}
+	handleErr(err)
+
+	handleErr(cfg.Validate())
 
 	dpl := Deploy{
-		Config:        *cfg,
-		OutputDir:     args.OutputDir,
-		LiveServe:     args.LiveServe,
-		DoRebuildSass: args.RebuildSass,
+		Config:    *cfg,
+		OutputDir: args.OutputDir,
+		LiveServe: args.LiveServe,
+		ConfigDir: filepath.Dir(args.ConfigPath),
 	}
-	dpl.Run()
+	handleErr(dpl.Build())
+
+	if args.LiveServe {
+		handleErr(dpl.Serve())
+	}
+}
+
+func handleErr(err error) {
+	if err == nil {
+		return
+	}
+	fmt.Println(err)
+	os.Exit(1)
 }

@@ -26,7 +26,7 @@ type Config struct {
 	Favicon          string  `toml:"favicon"`
 	OpenGraphImage   string  `toml:"open_graph_image"`
 	InfoPage         string  `toml:"info_page"`
-	AssetsFolder     string  `toml:"assets_folder"`
+	AssetsDir        string  `toml:"assets_dir"`
 	Genres           []Genre `toml:"genres"`
 	TimetableSource  string  `toml:"timetable_source"`
 	TimetableJSON    string  `toml:"timetable_json"`
@@ -43,7 +43,7 @@ func ExampleConfig(timetableSource string) (Config, error) {
 		Favicon:          "favicon.svg",
 		OpenGraphImage:   "open-graph.png",
 		InfoPage:         "infos.md",
-		AssetsFolder:     "assets",
+		AssetsDir:        "assets",
 		Genres:           []Genre{ExampleGenre},
 		TimetableSource:  timetableSource,
 	}
@@ -84,13 +84,16 @@ func (c Config) ToFile(path string) error {
 }
 
 func (c Config) Validate() error {
+	if c.AssetsDir == "" {
+		return fmt.Errorf("field assets_dir is not set in config")
+	}
+
 	warn := func(source, field string) {
 		fmt.Printf("Warning: %s is used as source for timetable but field '%s' is set in config.\n", source, field)
 	}
 	errMsg := func(sourceType, field string) error {
 		return fmt.Errorf("timetable data source set to '%s' in config file but '%s' field is undefined", sourceType, field)
 	}
-
 	switch c.TimetableSource {
 	case DataSourceJSON:
 		if c.TimetableCSV != "" {
