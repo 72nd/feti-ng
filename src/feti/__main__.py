@@ -30,7 +30,7 @@ def build_cmd(watch: bool):
     build.run()
 
 
-def serve(dir: str):
+def serve(dir: str, port: int):
     """
     Serve page with livereload for development purposes.
     """
@@ -43,9 +43,11 @@ def serve(dir: str):
         print(
             "additional dependencies needed install with pip3 install feti[dev]")
         return
+    if port is None:
+        port = 5500
     server = Server()
     server.watch(web_folder)
-    server.serve(root=web_folder)
+    server.serve(root=web_folder, port=port)
 
 
 def main():
@@ -92,6 +94,11 @@ def main():
         "WEB_DIR",
         help="folder containing the web content"
     )
+    parser_serve.add_argument(
+        "-p",
+        "--port",
+        help="Port for the webserver",
+    )
     parser_serve.set_defaults(func=serve)
 
     args = parser.parse_args()
@@ -99,7 +106,7 @@ def main():
     if args.command == "build":
         args.func(args.watch)
     elif args.command == "serve":
-        args.func(args.WEB_DIR)
+        args.func(args.WEB_DIR, args.port)
     elif args.config and args.secrets and args.output:
         asyncio.run(deploy(
             args.config,

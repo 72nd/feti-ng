@@ -1,0 +1,6 @@
+github.com/BurntSushi/toml v1.4.0 h1:kuoIxZQy2WRRk1pttg9asf+WVv6tWQuBNVmK8+nqPr0=
+github.com/BurntSushi/toml v1.4.0/go.mod h1:ukJfTF/6rtPPRCnwkur4qwRxa8vTRFBF0uk2lLoLwho=
+github.com/MakeNowJust/heredoc/v2 v2.0.1 h1:rlCHh70XXXv7toz95ajQWOWQnN4WNLt0TdpZYIR/J6A=
+github.com/MakeNowJust/heredoc/v2 v2.0.1/go.mod h1:6/2Abh5s+hc3g9nbWLe9ObDIOhaRrqsyY9MWy+4JdRM=
+github.com/jxskiss/mcli v0.9.5 h1:ucru5l3y2d0yWHTK/49tQHWcTWfIYqTQvputK2lmZtc=
+github.com/jxskiss/mcli v0.9.5/go.mod h1:F2DPy6IyQ9TUjPl0cnqIxVWH13wUeyxZGCWqQeKDCbA=
