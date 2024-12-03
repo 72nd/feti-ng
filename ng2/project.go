@@ -3,7 +3,6 @@ package main
 import (
 	"embed"
 	"fmt"
-	"io/fs"
 	"os"
 	"path"
 	"path/filepath"
@@ -51,7 +50,7 @@ func (p Project) Create() error {
 	if err := p.createConfig(); err != nil {
 		return err
 	}
-	if err := fs.WalkDir(projectFiles, "prj", p.populate); err != nil {
+	if err := ExpandEmbedFS(projectFiles, "prj", p.Path()); err != nil {
 		return err
 	}
 	return p.createScheduleSource()
@@ -70,27 +69,6 @@ func (p Project) createFolder() error {
 func (p Project) createConfig() error {
 	path := path.Join(p.Path(), "config.toml")
 	return p.Config.ToFile(path)
-}
-
-func (p Project) populate(path string, d fs.DirEntry, err error) error {
-	if err != nil {
-		return err
-	}
-	relPath, err := filepath.Rel("prj", path)
-	if err != nil {
-		return err
-	}
-	destPath := filepath.Join(p.Path(), relPath)
-
-	if d.IsDir() {
-		return os.MkdirAll(destPath, os.ModePerm)
-	}
-
-	data, err := projectFiles.ReadFile(path)
-	if err != nil {
-		return err
-	}
-	return os.WriteFile(destPath, data, os.ModePerm)
 }
 
 func (p Project) createScheduleSource() error {

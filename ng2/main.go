@@ -14,6 +14,7 @@ func main() {
 		Description: "a static festival timetable app builder",
 	}
 	app.AddRoot(deploy)
+	app.Add("bundle", bundle, "only for feti development: rebuild style in static from sass source")
 	app.Add("new", new, "create new timetable project in the current folder")
 	app.Run()
 }
@@ -38,6 +39,10 @@ func new() {
 		fmt.Println(err)
 		os.Exit(1)
 	}
+}
+
+func bundle() {
+	BuildSass(false)
 }
 
 func deploy() {
@@ -68,10 +73,10 @@ func deploy() {
 	}
 
 	dpl := Deploy{
-		Config:      *cfg,
-		OutputDir:   args.OutputDir,
-		LiveServe:   args.LiveServe,
-		RebuildSass: args.RebuildSass,
+		Config:        *cfg,
+		OutputDir:     args.OutputDir,
+		LiveServe:     args.LiveServe,
+		DoRebuildSass: args.RebuildSass,
 	}
 	dpl.Run()
 }
