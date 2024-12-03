@@ -35,11 +35,11 @@ type Config struct {
 
 func ExampleConfig(timetableSource string) (Config, error) {
 	rsl := Config{
-		EventName:        "Fnordival 2025",
-		EventDescription: "The Fnordival is like the best festival ever.",
+		EventName:        "Fetival 2025",
+		EventDescription: "The Fetival is like the best festival ever.",
 		Logo:             "logo.svg",
 		Favicon:          "favicon.svg",
-		OpenGraphImage:   "open_graph.png",
+		OpenGraphImage:   "open-graph.png",
 		InfoPage:         "infos.md",
 		AssetsFolder:     "assets",
 		Genres:           []Genre{ExampleGenre},

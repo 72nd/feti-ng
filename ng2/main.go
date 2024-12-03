@@ -28,12 +28,12 @@ func new() {
 		fmt.Printf("unknown timetable source '%s', use 'json/baserow/pretalx' instead\n", args.TimetableSource)
 		os.Exit(1)
 	}
-	prj, err := ExampleProject(strings.ToLower(args.TimetableSource))
+	prj, err := ExampleProject(args.Name, strings.ToLower(args.TimetableSource))
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
-	err = prj.Create(args.Name)
+	err = prj.Create()
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
