@@ -11,12 +11,14 @@ import (
 
 const (
 	DataSourceJSON    = "json"
+	DataSourceCSV     = "csv"
 	DataSourceBaserow = "baserow"
 	DataSourcePretalx = "pretalx"
 )
 
 var DataSources = []string{
 	DataSourceJSON,
+	DataSourceCSV,
 	DataSourceBaserow,
 	DataSourcePretalx,
 }
@@ -25,8 +27,9 @@ var DataSources = []string{
 var projectFiles embed.FS
 
 type Project struct {
-	Name   string
-	Config Config
+	Name            string
+	TimetableSource string
+	Config          Config
 }
 
 func ExampleProject(name, timetableSource string) (Project, error) {
@@ -35,8 +38,9 @@ func ExampleProject(name, timetableSource string) (Project, error) {
 		return Project{}, err
 	}
 	return Project{
-		Name:   name,
-		Config: cfg,
+		Name:            name,
+		TimetableSource: timetableSource,
+		Config:          cfg,
 	}, nil
 }
 
@@ -47,7 +51,10 @@ func (p Project) Create() error {
 	if err := p.createConfig(); err != nil {
 		return err
 	}
-	return fs.WalkDir(projectFiles, "prj", p.populate)
+	if err := fs.WalkDir(projectFiles, "prj", p.populate); err != nil {
+		return err
+	}
+	return p.createScheduleSource()
 }
 
 func (p Project) createFolder() error {
@@ -86,10 +93,20 @@ func (p Project) populate(path string, d fs.DirEntry, err error) error {
 	return os.WriteFile(destPath, data, os.ModePerm)
 }
 
+func (p Project) createScheduleSource() error {
+	switch p.TimetableSource {
+	case DataSourceJSON:
+		return ExampleScheduleFile.ToJSON(filepath.Join(p.Path(), "schedule.json"))
+	case DataSourceCSV:
+		return ExampleScheduleFile.ToCSV(filepath.Join(p.Path(), "schedule.csv"))
+	}
+	return nil
+}
+
 func (p Project) Path() string {
 	cwd, err := os.Getwd()
 	if err != nil {
 		panic(err)
 	}
-	return path.Join(cwd, p.Name)
+	return filepath.Join(cwd, p.Name)
 }

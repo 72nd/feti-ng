@@ -21,7 +21,7 @@ func main() {
 func new() {
 	var args struct {
 		Name            string `cli:"#R, name, project 'name'"`
-		TimetableSource string `cli:"-s, --source, source of timetable data 'json/baserow/pretalx'" default:"json"`
+		TimetableSource string `cli:"-s, --source, source of timetable data 'csv/json/baserow/pretalx'" default:"json"`
 	}
 	mcli.Parse(&args)
 	if !slices.Contains(DataSources, args.TimetableSource) {
@@ -68,9 +68,10 @@ func deploy() {
 	}
 
 	dpl := Deploy{
-		Config:    *cfg,
-		OutputDir: args.OutputDir,
-		LiveServe: args.LiveServe,
+		Config:      *cfg,
+		OutputDir:   args.OutputDir,
+		LiveServe:   args.LiveServe,
+		RebuildSass: args.RebuildSass,
 	}
 	dpl.Run()
 }

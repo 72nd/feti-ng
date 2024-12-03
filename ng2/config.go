@@ -30,7 +30,9 @@ type Config struct {
 	Genres           []Genre `toml:"genres"`
 	TimetableSource  string  `toml:"timetable_source"`
 	TimetableJSON    string  `toml:"timetable_json"`
+	TimetableCSV     string  `toml:"timetable_csv"`
 	BaserowToken     string  `toml:"baserow_token"`
+	PretalxToken     string  `toml:"pretalx_token"`
 }
 
 func ExampleConfig(timetableSource string) (Config, error) {
@@ -47,8 +49,12 @@ func ExampleConfig(timetableSource string) (Config, error) {
 	}
 	if timetableSource == "json" {
 		rsl.TimetableJSON = "schedule.json"
+	} else if timetableSource == "csv" {
+		rsl.TimetableCSV = "schedule.csv"
 	} else if timetableSource == "baserow" {
 		rsl.BaserowToken = "<MY-SECRET-TOKEN>"
+	} else if timetableSource == "pretalx" {
+		rsl.PretalxToken = "<MY-SECRET-TOKEN>"
 	} else {
 		return Config{}, fmt.Errorf("timetable source '%s' is currently not implemented", timetableSource)
 	}
@@ -75,4 +81,61 @@ func (c Config) ToFile(path string) error {
 		return err
 	}
 	return f.Close()
+}
+
+func (c Config) Validate() error {
+	warn := func(source, field string) {
+		fmt.Printf("Warning: %s is used as source for timetable but field '%s' is set in config.\n", source, field)
+	}
+	errMsg := func(sourceType, field string) error {
+		return fmt.Errorf("timetable data source set to '%s' in config file but '%s' field is undefined", sourceType, field)
+	}
+
+	switch c.TimetableSource {
+	case DataSourceJSON:
+		if c.TimetableCSV != "" {
+			warn("JSON file", "timetable_csv")
+		} else if c.BaserowToken != "" {
+			warn("JSON file", "baserow_token")
+		} else if c.PretalxToken != "" {
+			warn("JSON file", "pretalx_token")
+		}
+		if c.TimetableJSON == "" {
+			return errMsg("json", "timetable_json")
+		}
+	case DataSourceCSV:
+		if c.TimetableJSON != "" {
+			warn("CSV file", "timetable_json")
+		} else if c.BaserowToken != "" {
+			warn("CSV file", "baserow_token")
+		} else if c.PretalxToken != "" {
+			warn("CSV file", "pretalx_token")
+		}
+		if c.TimetableCSV == "" {
+			return errMsg("csv", "timetable_csv")
+		}
+	case DataSourceBaserow:
+		if c.TimetableJSON != "" {
+			warn("Baserow", "timetable_json")
+		} else if c.TimetableCSV != "" {
+			warn("Baserow", "timetable_csv")
+		} else if c.PretalxToken != "" {
+			warn("Baserow", "pretalx_token")
+		}
+		if c.BaserowToken == "" {
+			return errMsg("Baserow", "baserow_token")
+		}
+	case DataSourcePretalx:
+		if c.TimetableJSON != "" {
+			warn("Pretalx", "timetable_json")
+		} else if c.TimetableCSV != "" {
+			warn("Pretalx", "timetable_csv")
+		} else if c.BaserowToken != "" {
+			warn("Pretalx", "baserow_token")
+		}
+		if c.PretalxToken == "" {
+			return errMsg("Pretalx", "pretalx_token")
+		}
+	}
+	return nil
 }
