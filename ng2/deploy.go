@@ -53,12 +53,12 @@ func (d Deploy) deployAssets() error {
 	if err != nil {
 		return err
 	}
-	return os.CopyFS(dstPath, os.DirFS(srcPath))
+	return CopyDir(srcPath, dstPath)
 }
 
 func (d Deploy) deployStatic() error {
 	if d.LiveServe {
-		return os.CopyFS(d.OutputDir, os.DirFS("static"))
+		return CopyDir("static", filepath.Join(d.OutputDir, "static"))
 	}
 
 	dstPath := filepath.Join(d.OutputDir, "static")
@@ -66,7 +66,7 @@ func (d Deploy) deployStatic() error {
 	if err != nil {
 		return err
 	}
-	return os.CopyFS(dstPath, staticFiles)
+	return CopyFS(dstPath, staticFiles, "static")
 }
 
 func (d Deploy) deploySysAssets() error {
@@ -87,15 +87,7 @@ func (d Deploy) deploySysAssets() error {
 func (d Deploy) copySysAsset(configPathValue, dstPath string) error {
 	srcPath := filepath.Join(d.ConfigDir, configPathValue)
 	dstPath = filepath.Join(d.OutputDir, dstPath)
-	err := os.MkdirAll(filepath.Dir(dstPath), os.ModePerm)
-	if err != nil {
-		return err
-	}
-	data, err := os.ReadFile(srcPath)
-	if err != nil {
-		return err
-	}
-	return os.WriteFile(dstPath, data, os.ModePerm)
+	return CopyFile(srcPath, dstPath, true)
 }
 
 func (d Deploy) deploySchedule() error {

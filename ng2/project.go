@@ -50,8 +50,7 @@ func (p Project) Create() error {
 	if err := p.createConfig(); err != nil {
 		return err
 	}
-	// TODO: HIER IST DAS PROBLEM
-	if err := os.CopyFS(p.Path(), projectFiles); err != nil {
+	if err := CopyFS(p.Path(), projectFiles, "prj"); err != nil {
 		return err
 	}
 	return p.createScheduleSource()
