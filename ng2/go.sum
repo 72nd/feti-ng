@@ -4,5 +4,7 @@ github.com/MakeNowJust/heredoc/v2 v2.0.1 h1:rlCHh70XXXv7toz95ajQWOWQnN4WNLt0TdpZ
 github.com/MakeNowJust/heredoc/v2 v2.0.1/go.mod h1:6/2Abh5s+hc3g9nbWLe9ObDIOhaRrqsyY9MWy+4JdRM=
 github.com/artonge/go-csv-tag/v2 v2.5.0 h1:eSMctuimkUOESeCPSeub0ScfByvTEnQCUMz06BaFN5s=
 github.com/artonge/go-csv-tag/v2 v2.5.0/go.mod h1:MhLKePA0uu/+2jUJ4IER31uhRV/0GsIKyrSqSRR7Mkc=
+github.com/gocarina/gocsv v0.0.0-20240520201108-78e41c74b4b1 h1:FWNFq4fM1wPfcK40yHE5UO3RUdSNPaBC+j3PokzA6OQ=
+github.com/gocarina/gocsv v0.0.0-20240520201108-78e41c74b4b1/go.mod h1:5YoVOkjYAQumqlV356Hj3xeYh4BdZuLE0/nRkf2NKkI=
 github.com/jxskiss/mcli v0.9.5 h1:ucru5l3y2d0yWHTK/49tQHWcTWfIYqTQvputK2lmZtc=
 github.com/jxskiss/mcli v0.9.5/go.mod h1:F2DPy6IyQ9TUjPl0cnqIxVWH13wUeyxZGCWqQeKDCbA=

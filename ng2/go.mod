@@ -6,5 +6,6 @@ require (
 	github.com/BurntSushi/toml v1.4.0 // indirect
 	github.com/MakeNowJust/heredoc/v2 v2.0.1 // indirect
 	github.com/artonge/go-csv-tag/v2 v2.5.0 // indirect
+	github.com/gocarina/gocsv v0.0.0-20240520201108-78e41c74b4b1 // indirect
 	github.com/jxskiss/mcli v0.9.5 // indirect
 )

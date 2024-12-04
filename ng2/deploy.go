@@ -19,6 +19,7 @@ type Deploy struct {
 }
 
 func (d Deploy) Build() error {
+	// TODO As temp
 	if d.LiveServe {
 		BuildSass(false)
 	}
@@ -29,6 +30,9 @@ func (d Deploy) Build() error {
 		return err
 	}
 	if err := d.deploySysAssets(); err != nil {
+		return err
+	}
+	if err := d.deploySchedule(); err != nil {
 		return err
 	}
 
@@ -92,6 +96,22 @@ func (d Deploy) copySysAsset(configPathValue, dstPath string) error {
 		return err
 	}
 	return os.WriteFile(dstPath, data, os.ModePerm)
+}
+
+func (d Deploy) deploySchedule() error {
+	dstPath := filepath.Join(d.OutputDir, "schedule.json")
+	switch d.Config.TimetableSource {
+	case DataSourceJSON:
+		path := filepath.Join(d.ConfigDir, d.Config.TimetableJSON)
+		rsl, err := ScheduleFromJSON(path, d.Config.Genres)
+		if err != nil {
+			return err
+		}
+		if err := rsl.ToJSON(dstPath); err != nil {
+			return err
+		}
+	}
+	return nil
 }
 
 func (d Deploy) WatchFiles() {
