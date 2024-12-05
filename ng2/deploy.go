@@ -113,16 +113,19 @@ func (d Deploy) deploySchedule() error {
 
 func (d Deploy) deployHTML() error {
 	var tmpl *template.Template
+	tmpl = template.New("").Funcs(template.FuncMap{
+		"defaultI18nConfig": func() I18nConfig { return d.Config.DefaultI18nConfig() },
+	})
 	if d.LiveServe {
 		var err error
-		tmpl, err = template.ParseGlob(filepath.Join("tpl", "*.tmpl.html"))
+		tmpl, err = tmpl.ParseGlob(filepath.Join("tpl", "*.tmpl.html"))
 		if err != nil {
 			return err
 		}
 
 	} else {
 		var err error
-		tmpl, err = template.ParseFS(templateFiles, "tpl/*.tmpl.html")
+		tmpl, err = tmpl.ParseFS(templateFiles, "tpl/*.tmpl.html")
 		if err != nil {
 			return err
 		}
@@ -134,7 +137,7 @@ func (d Deploy) deployHTML() error {
 	}
 	defer file.Close()
 
-	return tmpl.ExecuteTemplate(file, "index.tmpl.html", nil)
+	return tmpl.ExecuteTemplate(file, "index.tmpl.html", d.Config)
 }
 
 func (d Deploy) WatchFiles() {

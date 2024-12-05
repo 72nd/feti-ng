@@ -20,6 +20,7 @@ var ExampleGenre = Genre{
 }
 
 type Config struct {
+	URL             string                `toml:"url"`
 	Logo            string                `toml:"logo"`
 	Favicon         string                `toml:"favicon"`
 	OpenGraphImage  string                `toml:"open_graph_image"`
@@ -44,6 +45,7 @@ type I18nConfig struct {
 
 func ExampleConfig(timetableSource string) (Config, error) {
 	rsl := Config{
+		URL:             "timetable.example.com",
 		Logo:            "logo.svg",
 		Favicon:         "favicon.svg",
 		OpenGraphImage:  "open-graph.png",
@@ -102,6 +104,15 @@ func (c Config) ToFile(path string) error {
 		return err
 	}
 	return f.Close()
+}
+
+func (c Config) DefaultI18nConfig() I18nConfig {
+	for _, config := range c.I18nConfigs {
+		if config.LanguageCode == c.DefaultLang {
+			return config
+		}
+	}
+	panic(fmt.Sprintf("no default language for '%s' found", c.DefaultLang))
 }
 
 func (c Config) Validate() error {

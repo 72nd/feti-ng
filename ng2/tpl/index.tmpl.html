@@ -3,7 +3,21 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>blah</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ defaultI18nConfig.EventName }}</title>
+
+    <meta property="og:title" content="{{ defaultI18nConfig.EventName }}" />
+    <meta property="og:Description" content="{{ defaultI18nConfig.EventDescription }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ .URL }}" />
+    <meta property="og:image" content="/static/img/open_graph.png" />
+
+    <link rel="icon" type="image/svg" href="static/img/favicon.svg">
+
+    <script src="static/js/router.min.js"></script>
+    <script defer src="static/js/component.min.js"></script>
+    <script defer src="static/js/alpinejs.min.js"></script>
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
