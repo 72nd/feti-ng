@@ -3,6 +3,7 @@ package main
 import (
 	"embed"
 	"fmt"
+	"html/template"
 	"os"
 	"os/exec"
 	"path/filepath"
@@ -10,6 +11,9 @@ import (
 
 //go:embed static/*
 var staticFiles embed.FS
+
+//go:embed tpl/*
+var templateFiles embed.FS
 
 type Deploy struct {
 	Config    Config
@@ -33,6 +37,9 @@ func (d Deploy) Build() error {
 		return err
 	}
 	if err := d.deploySchedule(); err != nil {
+		return err
+	}
+	if err := d.deployHTML(); err != nil {
 		return err
 	}
 
@@ -102,6 +109,32 @@ func (d Deploy) deploySchedule() error {
 		}
 	}
 	return nil
+}
+
+func (d Deploy) deployHTML() error {
+	var tmpl *template.Template
+	if d.LiveServe {
+		var err error
+		tmpl, err = template.ParseGlob(filepath.Join("tpl", "*.tmpl.html"))
+		if err != nil {
+			return err
+		}
+
+	} else {
+		var err error
+		tmpl, err = template.ParseFS(templateFiles, "tpl/*.tmpl.html")
+		if err != nil {
+			return err
+		}
+	}
+
+	file, err := os.Create(filepath.Join(d.OutputDir, "index.html"))
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	return tmpl.ExecuteTemplate(file, "index.tmpl.html", nil)
 }
 
 func (d Deploy) WatchFiles() {
