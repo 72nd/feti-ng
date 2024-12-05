@@ -44,6 +44,7 @@ func new() {
 
 func bundle() {
 	BuildSass(false)
+	fmt.Println("sass built, rebuild application now")
 }
 
 func deploy() {

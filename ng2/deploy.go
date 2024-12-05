@@ -19,7 +19,7 @@ type Deploy struct {
 }
 
 func (d Deploy) Build() error {
-	// TODO As temp
+	// TODO Using tmp folder.
 	if d.LiveServe {
 		BuildSass(false)
 	}
@@ -36,8 +36,6 @@ func (d Deploy) Build() error {
 		return err
 	}
 
-	// Copy static folder
-	// Copy assets folder
 	// Build html
 
 	// Handle LiveServe 1/2: Rebuild on file change
