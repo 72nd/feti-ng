@@ -7,6 +7,7 @@ import (
 	"slices"
 	"strings"
 
+	golive "github.com/antsankov/go-live/lib"
 	"github.com/jxskiss/mcli"
 )
 
@@ -52,6 +53,7 @@ func deploy() {
 		ConfigPath string `cli:"#R, -c, --config, path to config file"`
 		OutputDir  string `cli:"#R, -o, --output, output directory"`
 		LiveServe  bool   `cli:"-s, --serve, serve result with live-rebuild for development"`
+		Port       int    `cli:"-p, --port, port for live server" default:"5500"`
 	}
 	mcli.Parse(&args)
 	if args.LiveServe {
@@ -59,10 +61,10 @@ func deploy() {
 	}
 
 	info, err := os.Stat(args.OutputDir)
-	if os.IsNotExist(err) {
-		fmt.Printf("given output dir '%s' does not exist\n", args.OutputDir)
+	if err != nil && !os.IsNotExist(err) {
+		fmt.Println(err)
 		os.Exit(1)
-	} else if !info.IsDir() {
+	} else if !os.IsNotExist(err) && !info.IsDir() {
 		fmt.Printf("given output path '%s' is not a dir\n", args.OutputDir)
 		os.Exit(1)
 	}
@@ -81,7 +83,8 @@ func deploy() {
 	handleErr(dpl.Build())
 
 	if args.LiveServe {
-		handleErr(dpl.Serve())
+		port := fmt.Sprintf(":%d", args.Port)
+		handleErr(golive.StartServer(args.OutputDir, port, false))
 	}
 }
 

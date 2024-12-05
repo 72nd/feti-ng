@@ -143,10 +143,6 @@ func (d Deploy) deployHTML() error {
 func (d Deploy) WatchFiles() {
 }
 
-func (d Deploy) Serve() error {
-	return nil
-}
-
 func BuildSass(watch bool) error {
 	_, err := exec.LookPath("sass")
 	if err != nil {
