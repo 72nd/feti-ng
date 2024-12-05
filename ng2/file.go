@@ -6,6 +6,8 @@ import (
 	"io/fs"
 	"os"
 	"path/filepath"
+
+	"golang.org/x/tools/go/packages"
 )
 
 // Like the os.CopyFS() but with the option to set the root.
@@ -84,4 +86,15 @@ func CopyDir(srcPath, dstPath string) error {
 		}
 	}
 	return nil
+}
+
+func ModuleDir() (string, error) {
+	cfg := &packages.Config{
+		Mode: packages.NeedName | packages.NeedFiles | packages.NeedModule,
+	}
+	packages, err := packages.Load(cfg, ".")
+	if err != nil {
+		return "", err
+	}
+	return packages[0].Dir, nil
 }

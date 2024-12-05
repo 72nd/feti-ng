@@ -80,7 +80,7 @@ func deploy() {
 	handleErr(dpl.Build())
 
 	if args.LiveServe {
-		return
+		go handleErr(dpl.WatchFiles())
 		port := fmt.Sprintf(":%d", args.Port)
 		handleErr(golive.StartServer(args.OutputDir, port, false))
 	}

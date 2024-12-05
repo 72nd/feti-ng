@@ -137,8 +137,8 @@ func (d Deploy) WatchFiles() error {
 	if err != nil {
 		return err
 	}
+	defer watcher.Close()
 	go watcher.Run()
-	<-make(chan struct{})
 	return nil
 }
 
@@ -147,10 +147,15 @@ func BuildSass(watch bool) error {
 	if err != nil {
 		return fmt.Errorf("sass command not found. Please ensure sass is installed and in your PATH")
 	}
+	moduleDir, err := ModuleDir()
+	if err != nil {
+		return err
+	}
+
 	cmd := exec.Command(
 		"sass",
-		"sass/bootstrap.scss",
-		"static/css/bootstrap.min.css",
+		filepath.Join(moduleDir, "sass/bootstrap.scss"),
+		filepath.Join(moduleDir, "static/css/bootstrap.min.css"),
 		"--style=compressed",
 		"--quiet-deps",
 	)

@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"path/filepath"
 
 	"github.com/fsnotify/fsnotify"
 )
@@ -16,9 +17,20 @@ func NewDeploymentWatcher(deploy Deploy) (*DeploymentWatcher, error) {
 	if err != nil {
 		return nil, err
 	}
-	defer watcher.Close()
 
-	err = watcher.Add(deploy.Config.Path(deploy.Config.AssetsDir))
+	moduleDir, err := ModuleDir()
+	if err != nil {
+		return nil, err
+	}
+	err = watcher.Add(filepath.Join(moduleDir, "static"))
+	if err != nil {
+		return nil, err
+	}
+	err = watcher.Add(filepath.Join(moduleDir, "tpl"))
+	if err != nil {
+		return nil, err
+	}
+	err = watcher.Add(deploy.Config.configDir)
 	if err != nil {
 		return nil, err
 	}
@@ -29,24 +41,32 @@ func NewDeploymentWatcher(deploy Deploy) (*DeploymentWatcher, error) {
 	}, nil
 }
 
-func (w DeploymentWatcher) Run() {
-	for {
-		select {
-		case event, ok := <-w.Events:
-			if !ok {
-				// TODO Handle
-				return
+func (w *DeploymentWatcher) Run() {
+	done := make(chan bool)
+	go func() {
+		for {
+			select {
+			case event, ok := <-w.Events:
+				if !ok {
+					// TODO: Handle properly
+					fmt.Println("will return")
+					return
+				}
+				w.handleEvent(event)
+			case err, ok := <-w.Errors:
+				// TODO: Handle properly
+				if !ok {
+					return
+				}
+				fmt.Println("error:", err)
 			}
-			w.handleChanges(event)
-		case err, ok := <-w.Errors:
-			if !ok {
-				return
-			}
-			fmt.Println(err)
 		}
-	}
+	}()
+	<-done
 }
 
-func (w DeploymentWatcher) handleChanges(event fsnotify.Event) error {
+func (w DeploymentWatcher) handleEvent(event fsnotify.Event) error {
+	fmt.Printf("file '%s' has changed", event.Name)
+	w.deploy.Build()
 	return nil
 }
