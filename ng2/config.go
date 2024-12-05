@@ -20,32 +20,53 @@ var ExampleGenre = Genre{
 }
 
 type Config struct {
-	EventName        string  `toml:"event_name"`
-	EventDescription string  `toml:"event_description"`
-	Logo             string  `toml:"logo"`
-	Favicon          string  `toml:"favicon"`
-	OpenGraphImage   string  `toml:"open_graph_image"`
-	InfoPage         string  `toml:"info_page"`
-	AssetsDir        string  `toml:"assets_dir"`
-	Genres           []Genre `toml:"genres"`
-	TimetableSource  string  `toml:"timetable_source"`
-	TimetableJSON    string  `toml:"timetable_json"`
-	TimetableCSV     string  `toml:"timetable_csv"`
-	BaserowToken     string  `toml:"baserow_token"`
-	PretalxToken     string  `toml:"pretalx_token"`
+	Logo            string                `toml:"logo"`
+	Favicon         string                `toml:"favicon"`
+	OpenGraphImage  string                `toml:"open_graph_image"`
+	AssetsDir       string                `toml:"assets_dir"`
+	Genres          []Genre               `toml:"genres"`
+	TimetableSource string                `toml:"timetable_source"`
+	TimetableJSON   string                `toml:"timetable_json"`
+	TimetableCSV    string                `toml:"timetable_csv"`
+	BaserowToken    string                `toml:"baserow_token"`
+	PretalxToken    string                `toml:"pretalx_token"`
+	DefaultLang     string                `toml:"default_language"`
+	I18nConfigs     map[string]I18nConfig `toml:"lang"`
+}
+
+type I18nConfig struct {
+	LanguageCode     string `toml:"lang_code"` // ISO 639-1, ISO 639-2/3
+	LanguageName     string `toml:"lang_name"`
+	EventName        string `toml:"event_name"`
+	EventDescription string `toml:"event_description"`
+	InfoPage         string `toml:"info_page"`
 }
 
 func ExampleConfig(timetableSource string) (Config, error) {
 	rsl := Config{
-		EventName:        "Fetival 2025",
-		EventDescription: "The Fetival is like the best festival ever.",
-		Logo:             "logo.svg",
-		Favicon:          "favicon.svg",
-		OpenGraphImage:   "open-graph.png",
-		InfoPage:         "infos.md",
-		AssetsDir:        "assets",
-		Genres:           []Genre{ExampleGenre},
-		TimetableSource:  timetableSource,
+		Logo:            "logo.svg",
+		Favicon:         "favicon.svg",
+		OpenGraphImage:  "open-graph.png",
+		AssetsDir:       "assets",
+		Genres:          []Genre{ExampleGenre},
+		TimetableSource: timetableSource,
+		DefaultLang:     "en",
+		I18nConfigs: map[string]I18nConfig{
+			"en": {
+				LanguageCode:     "en",
+				LanguageName:     "English",
+				EventName:        "Fetival 2025",
+				EventDescription: "The Fetival is like the best festival ever.",
+				InfoPage:         "infos-en.md",
+			},
+			"de": {
+				LanguageCode:     "de",
+				LanguageName:     "Deutsch",
+				EventName:        "Fetival 2025",
+				EventDescription: "Das Fetival ist einfach das beste Festival",
+				InfoPage:         "infos-de.md",
+			},
+		},
 	}
 	if timetableSource == "json" {
 		rsl.TimetableJSON = "schedule.json"
@@ -85,7 +106,11 @@ func (c Config) ToFile(path string) error {
 
 func (c Config) Validate() error {
 	if c.AssetsDir == "" {
-		return fmt.Errorf("field assets_dir is not set in config")
+		return fmt.Errorf("field 'assets_dir' is not set in config")
+	}
+
+	if err := c.validateLanguage(); err != nil {
+		return err
 	}
 
 	warn := func(source, field string) {
@@ -141,4 +166,17 @@ func (c Config) Validate() error {
 		}
 	}
 	return nil
+}
+
+func (c Config) validateLanguage() error {
+	if c.DefaultLang == "" {
+		return fmt.Errorf("field 'default_lang' is not set in config")
+	}
+
+	for _, config := range c.I18nConfigs {
+		if config.LanguageCode == c.DefaultLang {
+			return nil
+		}
+	}
+	return fmt.Errorf("no i18n config for default language code '%s' found", c.DefaultLang)
 }
