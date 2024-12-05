@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"path/filepath"
 
 	"github.com/BurntSushi/toml"
 )
@@ -33,6 +34,7 @@ type Config struct {
 	PretalxToken    string                `toml:"pretalx_token"`
 	DefaultLang     string                `toml:"default_language"`
 	I18nConfigs     map[string]I18nConfig `toml:"lang"`
+	configDir       string                `toml:"-"`
 }
 
 type I18nConfig struct {
@@ -91,6 +93,7 @@ func ConfigFromFile(path string) (*Config, error) {
 		return nil, err
 	}
 	_, err = toml.Decode(string(file), &rsl)
+	rsl.configDir = filepath.Dir(path)
 	return &rsl, err
 }
 
@@ -113,6 +116,10 @@ func (c Config) DefaultI18nConfig() I18nConfig {
 		}
 	}
 	panic(fmt.Sprintf("no default language for '%s' found", c.DefaultLang))
+}
+
+func (c Config) Path(fieldValue string) string {
+	return filepath.Join(c.configDir, fieldValue)
 }
 
 func (c Config) Validate() error {

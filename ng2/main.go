@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"os"
-	"path/filepath"
 	"slices"
 	"strings"
 
@@ -73,16 +72,15 @@ func deploy() {
 	handleErr(err)
 
 	handleErr(cfg.Validate())
-
 	dpl := Deploy{
 		Config:    *cfg,
 		OutputDir: args.OutputDir,
 		LiveServe: args.LiveServe,
-		ConfigDir: filepath.Dir(args.ConfigPath),
 	}
 	handleErr(dpl.Build())
 
 	if args.LiveServe {
+		return
 		port := fmt.Sprintf(":%d", args.Port)
 		handleErr(golive.StartServer(args.OutputDir, port, false))
 	}

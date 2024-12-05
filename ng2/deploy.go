@@ -19,7 +19,6 @@ type Deploy struct {
 	Config    Config
 	OutputDir string
 	LiveServe bool
-	ConfigDir string
 }
 
 func (d Deploy) Build() error {
@@ -42,17 +41,11 @@ func (d Deploy) Build() error {
 	if err := d.deployHTML(); err != nil {
 		return err
 	}
-
-	// Build html
-
-	// Handle LiveServe 1/2: Rebuild on file change
-	// Handle LiveServe 2/2: Start live server
-	// --> Maybe it makes sense to split the live control logic to the caller.
 	return nil
 }
 
 func (d Deploy) deployAssets() error {
-	srcPath := filepath.Join(d.ConfigDir, d.Config.AssetsDir)
+	srcPath := d.Config.Path(d.Config.AssetsDir)
 	dstPath := filepath.Join(d.OutputDir, "assets")
 	err := os.MkdirAll(dstPath, os.ModePerm)
 	if err != nil {
@@ -90,7 +83,7 @@ func (d Deploy) deploySysAssets() error {
 }
 
 func (d Deploy) copySysAsset(configPathValue, dstPath string) error {
-	srcPath := filepath.Join(d.ConfigDir, configPathValue)
+	srcPath := d.Config.Path(configPathValue)
 	dstPath = filepath.Join(d.OutputDir, dstPath)
 	return CopyFile(srcPath, dstPath, true)
 }
@@ -99,7 +92,7 @@ func (d Deploy) deploySchedule() error {
 	dstPath := filepath.Join(d.OutputDir, "schedule.json")
 	switch d.Config.TimetableSource {
 	case DataSourceJSON:
-		path := filepath.Join(d.ConfigDir, d.Config.TimetableJSON)
+		path := d.Config.Path(d.Config.TimetableJSON)
 		rsl, err := ScheduleFromJSON(path, d.Config.Genres)
 		if err != nil {
 			return err
@@ -113,18 +106,17 @@ func (d Deploy) deploySchedule() error {
 
 func (d Deploy) deployHTML() error {
 	var tmpl *template.Template
+	var err error = nil
 	tmpl = template.New("").Funcs(template.FuncMap{
 		"defaultI18nConfig": func() I18nConfig { return d.Config.DefaultI18nConfig() },
 	})
 	if d.LiveServe {
-		var err error
 		tmpl, err = tmpl.ParseGlob(filepath.Join("tpl", "*.tmpl.html"))
 		if err != nil {
 			return err
 		}
 
 	} else {
-		var err error
 		tmpl, err = tmpl.ParseFS(templateFiles, "tpl/*.tmpl.html")
 		if err != nil {
 			return err
@@ -140,7 +132,14 @@ func (d Deploy) deployHTML() error {
 	return tmpl.ExecuteTemplate(file, "index.tmpl.html", d.Config)
 }
 
-func (d Deploy) WatchFiles() {
+func (d Deploy) WatchFiles() error {
+	watcher, err := NewDeploymentWatcher(d)
+	if err != nil {
+		return err
+	}
+	go watcher.Run()
+	<-make(chan struct{})
+	return nil
 }
 
 func BuildSass(watch bool) error {
